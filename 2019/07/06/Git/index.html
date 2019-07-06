@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.0" color="#222">
+
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Git is a distributed version control system">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git简明教程">
+<meta property="og:url" content="http://yoursite.com/2019/07/06/Git/index.html">
+<meta property="og:site_name" content="wangyuxiang0829">
+<meta property="og:description" content="Git is a distributed version control system">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/branch.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/branch%20label%20reference.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/HEAD%20reference.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/tag%20reference.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/short%20lived%20branch.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/Detached%20HEAD.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/deleting%20a%20beanch.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/dangling%20commit.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merging.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fast-forward%20merge.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/not%20possible%20fast-forward%20merge.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge%20commit.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge%20conflict.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/three%20commits.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fetch.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20fast-forward%20merge.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20merge%20commit.png">
+<meta property="og:updated_time" content="2019-04-23T07:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git简明教程">
+<meta name="twitter:description" content="Git is a distributed version control system">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/branch.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/06/Git/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Git简明教程 | wangyuxiang0829</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wangyuxiang0829</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/wangyuxiang0829" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyuxiang0829">
+      <meta itemprop="description" content="Do What I Love">
+      <meta itemprop="image" content="/uploads/dream.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangyuxiang0829">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git简明教程
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-06 02:16:16" itemprop="dateCreated datePublished" datetime="2019-07-06T02:16:16+00:00">2019-07-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 07:12:44" itemprop="dateModified" datetime="2019-04-23T07:12:44+00:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Git is a distributed version control system</strong></p>
+<a id="more"></a>
+
+<h2 id="Git-Overview"><a href="#Git-Overview" class="headerlink" title="Git Overview"></a>Git Overview</h2><h3 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a>What is Git?</h3><blockquote>
+<p>Git is a distributed version control system which means each user has a local copy of the remote repository and can easily be synchronized</p>
+</blockquote>
+<h3 id="What-is-a-Git-Repository"><a href="#What-is-a-Git-Repository" class="headerlink" title="What is a Git Repository?"></a>What is a Git Repository?</h3><ul>
+<li>A series of <strong>snapshots</strong> or <strong>commits</strong></li>
+</ul>
+<hr>
+<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><h3 id="Configuring-User-Information"><a href="#Configuring-User-Information" class="headerlink" title="Configuring User Information"></a>Configuring User Information</h3><ul>
+<li>Use the <code>git config [--local | --global | --system] &lt;key&gt; [&lt;value&gt;]</code> command to specify or read configuration information if you don’t use the <code>[value]</code> option</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global user.email "yuxiangwang0829@gmail.com" # set</span><br><span class="line"><span class="meta">$</span> git config --global user.email # get</span><br><span class="line">yuxiangwang0829@gmail.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="Configuring-the-Default-Editor"><a href="#Configuring-the-Default-Editor" class="headerlink" title="Configuring the Default Editor"></a>Configuring the Default Editor</h3><ul>
+<li>Use the <code>git config --global core.editor [&lt;editorname&gt;]</code> command to specify or read your preferred Git editor if you don’t use the <code>[editorname]</code> option</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global core.editor vim # set</span><br><span class="line"><span class="meta">$</span> git config --global core.editor # get</span><br><span class="line">vim</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Git-Locations"><a href="#Git-Locations" class="headerlink" title="Git Locations"></a>Git Locations</h2><h3 id="Project-Directory"><a href="#Project-Directory" class="headerlink" title="Project Directory"></a>Project Directory</h3><h4 id="Working-Tree"><a href="#Working-Tree" class="headerlink" title="Working Tree"></a>Working Tree</h4><ul>
+<li>A single commit’s directories and files</li>
+<li>You can view and edit the files of project, preparing for the next commit</li>
+</ul>
+<h4 id="Staging-Area-Index"><a href="#Staging-Area-Index" class="headerlink" title="Staging Area/Index"></a>Staging Area/Index</h4><ul>
+<li>Files that are planned for the next commit</li>
+</ul>
+<h4 id="Local-Repository"><a href="#Local-Repository" class="headerlink" title="Local Repository"></a>Local Repository</h4><ul>
+<li>Contains all of the commits that have been made for the project</li>
+</ul>
+<h4 id="git-Directory"><a href="#git-Directory" class="headerlink" title=".git Directory"></a>.git Directory</h4><ul>
+<li>A hidden .git directory which contains the staging area and local repository</li>
+</ul>
+<h3 id="Remote-Repository"><a href="#Remote-Repository" class="headerlink" title="Remote Repository"></a>Remote Repository</h3><ul>
+<li>Contains the commits of the project</li>
+</ul>
+<hr>
+<h2 id="Create-a-Local-Repository"><a href="#Create-a-Local-Repository" class="headerlink" title="Create a Local Repository"></a>Create a Local Repository</h2><ul>
+<li><code>git init</code> – initialize (create) an empty repository</li>
+</ul>
+<hr>
+<h2 id="Commit-to-a-Local-Repository"><a href="#Commit-to-a-Local-Repository" class="headerlink" title="Commit to a Local Repository"></a>Commit to a Local Repository</h2><ul>
+<li>Use <code>git status</code> to view the status of files in the working tree and staging area</li>
+<li>Use <code>git add</code> to add content to the staging area</li>
+<li>Use the <code>git commit [-m]</code> command to add staged content to the local repository as a commit, you can use the <code>-m</code> flag to specify a short commit message, if you don’t use the <code>-m</code> option, and then Git will open the default editor to let you write the commit message</li>
+<li>Use <code>git log [--oneline]</code> to view the local repository’s commit history</li>
+</ul>
+<hr>
+<h2 id="Push-to-a-Remote-Repository"><a href="#Push-to-a-Remote-Repository" class="headerlink" title="Push to a Remote Repository"></a>Push to a Remote Repository</h2><h3 id="git-clone-vs-git-remote-add"><a href="#git-clone-vs-git-remote-add" class="headerlink" title="git clone vs. git remote add"></a><code>git clone</code> vs. <code>git remote add</code></h3><p><strong>If you want to begin working with the remote repository, you have two main options:</strong></p>
+<ul>
+<li>If have a local repository, you want to <strong>push</strong> to a remote repository, than you will <strong>add</strong> the remote repository to your local repository</li>
+</ul>
+<ul>
+<li>If not have a local repository, you will <strong>clone</strong> the remote repository which will create a local repository that is associated with the remote repository</li>
+</ul>
+<h3 id="Clone-a-Remote-Repository"><a href="#Clone-a-Remote-Repository" class="headerlink" title="Clone a Remote Repository"></a>Clone a Remote Repository</h3><blockquote>
+<p>A clone is a local copy of a remote repository</p>
+<p>A reference to the remote repository is included in the local repository, so you can synchronize the repository</p>
+<p><strong>origin</strong> is the default alias for the remote repository URL</p>
+</blockquote>
+<h4 id="How-to-Clone"><a href="#How-to-Clone" class="headerlink" title="How to Clone"></a>How to Clone</h4><ul>
+<li><code>git clone &lt;url/to/projectname.git&gt; [localprojectname]</code> is used to create a local copy of a remote repository, the last argument (which defines the name of the directory name where the local repository is located) is optional, cloning will create a project directory in your local computer</li>
+</ul>
+<h4 id="What-Does-Clone-Do"><a href="#What-Does-Clone-Do" class="headerlink" title="What Does Clone Do"></a>What Does Clone Do</h4><ul>
+<li>After cloning, all the commits on the remote repository will also in your local repository</li>
+</ul>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
+<li><code>git remote [--verbose]</code> displays information about remote repositories associated with the local repository</li>
+</ul>
+<h3 id="Add-a-Remote-Repository-to-a-Local-Repository"><a href="#Add-a-Remote-Repository-to-a-Local-Repository" class="headerlink" title="Add a Remote Repository to a Local Repository"></a>Add a Remote Repository to a Local Repository</h3><ul>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code> command will add information about the remote repository to the local repository, the two repositories can then be synchronized using aliases instead of URL</li>
+</ul>
+<h3 id="Push-Commits-to-a-Remote-Repository"><a href="#Push-Commits-to-a-Remote-Repository" class="headerlink" title="Push Commits to a Remote Repository"></a>Push Commits to a Remote Repository</h3><blockquote>
+<p>All commits belong to a branch</p>
+<p>A branch can be thought of as an independent line of development of the project</p>
+</blockquote>
+<h4 id="Default-Branch"><a href="#Default-Branch" class="headerlink" title="Default Branch"></a>Default Branch</h4><ul>
+<li>By default, there is a single branch and it is called <strong>master</strong></li>
+</ul>
+<h4 id="How-to-Push"><a href="#How-to-Push" class="headerlink" title="How to Push"></a>How to Push</h4><ul>
+<li><code>git push [-u] [&lt;repository&gt;] [&lt;branch&gt;]</code> writes commits for a branch from the local repository to a remote repository<ul>
+<li><code>&lt;repository&gt;</code> can be a name(shortcut which is often origin) or URL</li>
+<li><code>-u</code> flag is set to set up a tracking relationship between the local and remote branch</li>
+<li><code>[&lt;branch&gt;]</code> is the branch in the remote repository that you want to push to</li>
+<li>The arguments after <code>git push</code> are all optional, because git will assume default information or use previous arguments after you have executed the first push</li>
+</ul>
+</li>
+</ul>
+<h4 id="What-Does-Push-Do"><a href="#What-Does-Push-Do" class="headerlink" title="What Does Push Do"></a>What Does Push Do</h4><ul>
+<li>A successful push synchronizes the branches on the local and remote repositories so that they they contain exactly the same commits</li>
+</ul>
+<h4 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>Before you run <code>git push</code> command you can use <code>git remote --verbose</code> command to ensure that your local repository has an association with the remote repository</li>
+</ul>
+<hr>
+<h2 id="Git’s-Graph-Model"><a href="#Git’s-Graph-Model" class="headerlink" title="Git’s Graph Model"></a>Git’s Graph Model</h2><ul>
+<li><strong>Git models the relationship of commits with directed acyclic graph</strong></li>
+<li><strong>The arrows point at a commit’s parent(s)</strong></li>
+<li><strong>The commits and the relationship between them is what forms the project’s history</strong></li>
+<li><strong>A branch occurs if a commit has more than one child</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/branch.png" alt="branch"></p>
+<ul>
+<li><strong>A merge occurs when a commit has more than one parent</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge.png" alt="merge"></p>
+<ul>
+<li><code>git log [--graph]</code> will show you a diagram</li>
+</ul>
+<hr>
+<h2 id="Git-IDs"><a href="#Git-IDs" class="headerlink" title="Git IDs"></a>Git IDs</h2><h3 id="Git-Objects"><a href="#Git-Objects" class="headerlink" title="Git Objects"></a>Git Objects</h3><ol>
+<li><strong>Commit object</strong> - A small text file</li>
+<li><strong>Annotated tag</strong> - A reference to a specific commit</li>
+<li>Tree - Directories and filenames in the project</li>
+<li>Blob - The content of a file in the project</li>
+</ol>
+<h3 id="Git-ID"><a href="#Git-ID" class="headerlink" title="Git ID"></a>Git ID</h3><ul>
+<li>The name of a Git Object</li>
+<li>40 - character hexadecimal string also known as object ID, SHA-1, hash, and checksum</li>
+</ul>
+<h3 id="Shortening-Git-IDs"><a href="#Shortening-Git-IDs" class="headerlink" title="Shortening Git IDs"></a>Shortening Git IDs</h3><ul>
+<li>The first portion of the Git ID</li>
+</ul>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><h3 id="Overview-of-References"><a href="#Overview-of-References" class="headerlink" title="Overview of References"></a>Overview of References</h3><ul>
+<li>Commits objects can be associated with references</li>
+<li>A reference is a user-friendly name that points to:<ul>
+<li>a commit SHA-1 hash</li>
+<li>another reference(known as a symbolic reference) (such as HEAD)</li>
+</ul>
+</li>
+<li>Use references instead of SHA-1 hashes, <code>git show</code> command can show the specified commit message, such as use <code>git show HEAD</code></li>
+<li>References are stored in the .git directory</li>
+</ul>
+<h3 id="Branch-Label-and-HEAD-Reference"><a href="#Branch-Label-and-HEAD-Reference" class="headerlink" title="Branch Label and HEAD Reference"></a>Branch Label and HEAD Reference</h3><h4 id="Branch-Label-References"><a href="#Branch-Label-References" class="headerlink" title="Branch Label References"></a>Branch Label References</h4><ul>
+<li><strong>master</strong> is the default name of the main branch in the repository</li>
+<li><strong>A branch label</strong> is a reference points to the most recent commit object in the branch</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/branch%20label%20reference.png" alt="branch label reference"></p>
+<ul>
+<li><strong>Branch labels</strong> are implemented as references</li>
+<li>The difference between a branch and a branch label:<ul>
+<li>All commits belong to the branch</li>
+<li>The branch label is only at the latest commit of the branch</li>
+</ul>
+</li>
+</ul>
+<h4 id="HEAD-Reference"><a href="#HEAD-Reference" class="headerlink" title="HEAD Reference"></a>HEAD Reference</h4><ul>
+<li><strong>HEAD</strong> is a reference to the current commit object</li>
+<li><strong>HEAD</strong> usually points to the branch label reference of the current branch</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/HEAD%20reference.png" alt="HEAD reference"></p>
+<ul>
+<li>Only one <strong>HEAD</strong> per repository</li>
+</ul>
+<h3 id="Tag-Reference"><a href="#Tag-Reference" class="headerlink" title="Tag Reference"></a>Tag Reference</h3><h4 id="Tag-Overview"><a href="#Tag-Overview" class="headerlink" title="Tag Overview"></a>Tag Overview</h4><ul>
+<li>A <strong>tag</strong> is a reference points to a specified commit object, it acts a user-friendly label for the commit</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/tag%20reference.png" alt="tag reference"></p>
+<ul>
+<li>There are two types of tags:<ul>
+<li>Lightweight(A simple reference points to a commit object much like branch label or HEAD)</li>
+<li>Annotated(recommended)<ul>
+<li>A full Git object that references a commit</li>
+<li>Includes tag author information, tag date, tag message, the commit ID</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Create-and-View-tags"><a href="#Create-and-View-tags" class="headerlink" title="Create and View tags"></a>Create and View tags</h4><h5 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h5><ul>
+<li><p><code>git tag</code> - View all tags in the repository</p>
+</li>
+<li><p>Tags can be used instead of branch labels or Git IDs in Git commands such as <code>git show v1.0</code></p>
+</li>
+<li><p>To tag a commit with a lightweight tag:</p>
+<ul>
+<li><code>git tag &lt;tagname&gt; [&lt;commit&gt;]</code></li>
+<li><code>&lt;commit&gt;</code> defaults to HEAD</li>
+</ul>
+</li>
+<li><p>To tag a commit with an annotated tag:</p>
+<ul>
+<li><code>git tag -a [-m &lt;msg&gt; | -F &lt;file&gt;] &lt;tagname&gt; [&lt;commit&gt;]</code></li>
+<li><code>commit</code> default to HEAD</li>
+</ul>
+</li>
+</ul>
+<h5 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git init</span><br><span class="line">Initialized empty Git repository in /.../.../.git/</span><br><span class="line"><span class="meta">$</span> git log</span><br><span class="line">fatal: your current branch 'master' does not have any commits yet</span><br><span class="line"><span class="meta">$</span> touch file1</span><br><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use "git add &lt;file&gt;..." to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        file1</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use "git add" to track)</span><br><span class="line"><span class="meta">$</span> git add .</span><br><span class="line"><span class="meta">$</span> git commit -m "file1"</span><br><span class="line">[master (root-commit) e37cbd7] file1</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line">create mode 100644 file1</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">e37cbd7 (HEAD -&gt; master) file1</span><br><span class="line"><span class="meta">$</span> git tag v1.0</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">e37cbd7 (HEAD -&gt; master, tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> touch file2</span><br><span class="line"><span class="meta">$</span> git add .</span><br><span class="line"><span class="meta">$</span> git commit -m "file2"</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">18e1299 (HEAD -&gt; master) file2</span><br><span class="line">e37cbd7 (tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> git tag -a -m "this is an annotated tag" v2.0</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">18e1299 (HEAD -&gt; master, tag: v2.0) file2</span><br><span class="line">e37cbd7 (tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> git tag</span><br><span class="line">v1.0</span><br><span class="line">v2.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h4><ul>
+<li><code>git push</code> does not automatically transfer tags to the remote repository</li>
+<li>To transfer a single tag: <code>git push [&lt;remote&gt;] &lt;tagname&gt;</code></li>
+<li>To transfer all of your tags: <code>git push [&lt;remote&gt;] --tags</code></li>
+</ul>
+<hr>
+<h2 id="Branches"><a href="#Branches" class="headerlink" title="Branches"></a>Branches</h2><h3 id="Branch-Overview"><a href="#Branch-Overview" class="headerlink" title="Branch Overview"></a>Branch Overview</h3><blockquote>
+<p>A branch is a set of commits starting with the most recent commit in the branch and tracing back to the project’s first commit – root commit</p>
+</blockquote>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
+<li>Fast and easy to create</li>
+<li>Enable experimentation</li>
+<li>Enable team development</li>
+<li>Support multiple project versions</li>
+</ol>
+<h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><ol>
+<li><strong>Short-lived</strong> (commonly called topic or feature branches) usually contain one small change to the project</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/short%20lived%20branch.png" alt="short lived branch"></p>
+<ol start="2">
+<li><strong>Long-lived</strong> such as master, develop, release</li>
+</ol>
+<h4 id="Look-Over"><a href="#Look-Over" class="headerlink" title="Look Over"></a>Look Over</h4><ul>
+<li>Use <code>git branch</code> to see a list of branches in a repository</li>
+</ul>
+<h3 id="Creating-a-branch"><a href="#Creating-a-branch" class="headerlink" title="Creating a branch"></a>Creating a branch</h3><h4 id="Commands-1"><a href="#Commands-1" class="headerlink" title="Commands"></a>Commands</h4><ul>
+<li>Use <code>git branch &lt;name&gt;</code> to create a branch</li>
+</ul>
+<h4 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>Creating a branch simply creates a new branch label reference but you remain still on the original branch</li>
+</ul>
+<h3 id="Checkout"><a href="#Checkout" class="headerlink" title="Checkout"></a>Checkout</h3><h4 id="What-Checkout-Will-Do"><a href="#What-Checkout-Will-Do" class="headerlink" title="What Checkout Will Do"></a>What Checkout Will Do</h4><ul>
+<li>Update the <strong>HEAD</strong> reference</li>
+<li>Update the <strong>working tree</strong> with the commit’s files</li>
+</ul>
+<h4 id="How-To-Checkout"><a href="#How-To-Checkout" class="headerlink" title="How To Checkout"></a>How To Checkout</h4><ul>
+<li>Use <code>git checkout &lt;branch_or_commit&gt;</code> to checkout a <strong>branch</strong> or <strong>commit</strong></li>
+<li>Use <code>git checkout -b &lt;branchname&gt;</code> to combine creating and checking out a branch into a single command</li>
+</ul>
+<h3 id="Detached-HEAD"><a href="#Detached-HEAD" class="headerlink" title="Detached HEAD"></a>Detached HEAD</h3><ul>
+<li>Checking out a <strong>commit</strong> rather than a <strong>branch label</strong> leads to a detached HEAD state</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">You are in &apos;detached HEAD&apos; state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make in this</span><br><span class="line">state without impacting any branches by performing another checkout.</span><br><span class="line"></span><br><span class="line">If you want to create a new branch to retain commits you create, you may</span><br><span class="line">do so (now or later) by using -b with the checkout command again. Example:</span><br><span class="line"></span><br><span class="line">  git checkout -b &lt;new-branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/Detached%20HEAD.png" alt="Detached HEAD"></p>
+<h3 id="Deleting-a-Branch-Label"><a href="#Deleting-a-Branch-Label" class="headerlink" title="Deleting a Branch Label"></a>Deleting a Branch Label</h3><h4 id="How-to-Delete"><a href="#How-to-Delete" class="headerlink" title="How to Delete"></a>How to Delete</h4><ul>
+<li>Use <code>git branch -d &lt;branchname&gt;</code> to delete a branch</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; master, featureX) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout featureX</span><br><span class="line">Switched to branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; featureX, master) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">error: Cannot delete branch 'featureX' checked out at '...'</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line">Switched to branch 'master'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">Deleted branch featureX (was 3388bbb).</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; master) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Deleting a branch really just means that you’re deleting a branch label</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/deleting%20a%20beanch.png" alt="deleting a branch"></p>
+<h4 id="Deleting-a-not-Merged-Branch-is-Forbidden"><a href="#Deleting-a-not-Merged-Branch-is-Forbidden" class="headerlink" title="Deleting a not Merged Branch is Forbidden"></a>Deleting a not Merged Branch is Forbidden</h4><ul>
+<li><strong>If you are trying to delete a not fully merged branch, Git will not let you to do that</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3db9474 (HEAD -&gt; master) E</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout featureX</span><br><span class="line">Switched to branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">4a4439d (HEAD -&gt; featureX) D</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line">Switched to branch 'master'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">error: The branch 'featureX' is not fully merged.</span><br><span class="line">If you are sure you want to delete it, run 'git branch -D featureX'.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>If you are sure you want to delete the branch, use the command <code>git branch -D &lt;branchname&gt;</code> but that will lead to the <strong>dangling commits</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/dangling%20commit.png" alt="dangling commit"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch -D featureX</span><br><span class="line">Deleted branch featureX (was 4a4439d).</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Git will periodically garbage collect looking for and deleting older dangling commits, So be careful if you use the D option</p>
+</blockquote>
+<ul>
+<li>You can use <code>git reflog</code> to return a local list of recent HEAD commits</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog</span><br><span class="line">3db9474 (HEAD -&gt; master) HEAD@&#123;0&#125;: checkout: moving from featureX to master</span><br><span class="line">4a4439d HEAD@&#123;1&#125;: commit: D</span><br><span class="line">3388bbb HEAD@&#123;2&#125;: checkout: moving from master to featureX</span><br><span class="line">...</span><br><span class="line"><span class="meta">$</span> git checkout -b featureX 4a4439d </span><br><span class="line"><span class="meta">#</span> Creating a new branch label pointing to our previously dangling commit and now are back in bussiness</span><br><span class="line">Switched to a new branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">4a4439d (HEAD -&gt; featureX) D</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h2><h3 id="Merge-Overview"><a href="#Merge-Overview" class="headerlink" title="Merge Overview"></a>Merge Overview</h3><h4 id="What-Does-Merge-Do"><a href="#What-Does-Merge-Do" class="headerlink" title="What Does Merge Do"></a>What Does Merge Do</h4><blockquote>
+<p>Merging combines the work of independent branches</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merging.png" alt="merging"></p>
+<h4 id="Type-of-Merge"><a href="#Type-of-Merge" class="headerlink" title="Type of Merge"></a>Type of Merge</h4><ul>
+<li>Two main types of merges:<ol>
+<li>Fast-forward merge</li>
+<li>Merge commit</li>
+</ol>
+</li>
+</ul>
+<h3 id="Fast-forward-Merge"><a href="#Fast-forward-Merge" class="headerlink" title="Fast-forward Merge"></a>Fast-forward Merge</h3><h4 id="What-Does-Fast-forward-Merge-Do"><a href="#What-Does-Fast-forward-Merge-Do" class="headerlink" title="What Does Fast-forward Merge Do"></a>What Does Fast-forward Merge Do</h4><blockquote>
+<p>Just moving the base branch label to the tip of the topic branch</p>
+</blockquote>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fast-forward%20merge.png" alt="fast-forward merge"></p>
+<h4 id="Note-3"><a href="#Note-3" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>A Fast-forward merge is possible only when no other commits have been made to the base branch since the topic branch was created</li>
+</ul>
+<p>In this example, a Fast-forward merge is not possible:</p>
+<p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/not%20possible%20fast-forward%20merge.png" alt="not possible fast-forward merge"></p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a fast-forward-merge:</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX # Attemping a fast forward merge is the default</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
+
+<h3 id="Merge-Commit"><a href="#Merge-Commit" class="headerlink" title="Merge Commit"></a>Merge Commit</h3><h4 id="What-Does-Merge-Commit-Do"><a href="#What-Does-Merge-Commit-Do" class="headerlink" title="What Does Merge Commit Do"></a>What Does Merge Commit Do</h4><ol>
+<li>Combines the commits at the tips of the merged branches</li>
+<li>Places the result in the merge commit</li>
+</ol>
+<h4 id="Graph-1"><a href="#Graph-1" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge%20commit.png" alt="merge commit"></p>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><h5 id="Not-Fast-Forwardable"><a href="#Not-Fast-Forwardable" class="headerlink" title="Not Fast Forwardable"></a>Not Fast Forwardable</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a merge commit(if the merge is not fast forwardable):</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX</span><br><span class="line"><span class="meta">#</span>1. automatically attempt to create a merge commit if the merge is not fast forwardable</span><br><span class="line"><span class="meta">#</span>2. accept or modify the default merge message created by git</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
+
+<h5 id="Is-Fast-Forwardable"><a href="#Is-Fast-Forwardable" class="headerlink" title="Is Fast Forwardable"></a>Is Fast Forwardable</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a merge commit(if the merge is fast forwardable):</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge --no-ff featureX</span><br><span class="line"><span class="meta">#</span>1. [--no-ff] means that a merge commit will always be created even the merge is fast forwardable</span><br><span class="line"><span class="meta">#</span>2. accept or modify the merge default message created by git</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Resolving-Merge-Conflicts"><a href="#Resolving-Merge-Conflicts" class="headerlink" title="Resolving Merge Conflicts"></a>Resolving Merge Conflicts</h2><h3 id="Merge-Conflict-Overview"><a href="#Merge-Conflict-Overview" class="headerlink" title="Merge Conflict Overview"></a>Merge Conflict Overview</h3><h4 id="Hunk"><a href="#Hunk" class="headerlink" title="Hunk"></a>Hunk</h4><blockquote>
+<p>In Git, a part of file is called a <strong>hunk</strong></p>
+</blockquote>
+<h4 id="When-Does-Merge-Conflict-occur"><a href="#When-Does-Merge-Conflict-occur" class="headerlink" title="When Does Merge Conflict occur"></a>When Does Merge Conflict occur</h4><blockquote>
+<p>The merge conflicts occur when two branches modify the same hunk of the same file</p>
+</blockquote>
+<h4 id="Graph-2"><a href="#Graph-2" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge%20conflict.png" alt="merge conflict"></p>
+<h4 id="Note-4"><a href="#Note-4" class="headerlink" title="Note"></a>Note</h4><blockquote>
+<ol>
+<li>A person needs to make a decision on how to resolve the merge conflict</li>
+<li>Avoid making a lot of changes over a long period of time without merging</li>
+</ol>
+</blockquote>
+<h3 id="Resolving-a-Merge-Conflict"><a href="#Resolving-a-Merge-Conflict" class="headerlink" title="Resolving a Merge Conflict"></a>Resolving a Merge Conflict</h3><h4 id="Graph-3"><a href="#Graph-3" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/three%20commits.png" alt="three commits"></p>
+<ol>
+<li>The tip of the current branch (B) - “ours” or “mine”</li>
+<li>The tip of the branch to merged (C) - “theirs”</li>
+<li>A common ancestor (A) - “merge base”</li>
+</ol>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Basic steps to resolve a merge conflict:</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX</span><br><span class="line"><span class="meta">#</span>1. Assume both branches modified the same hunk in a file in different ways</span><br><span class="line"><span class="meta">#</span>2. At this point, git will modifed the file which will show you exactly where the conflicts are and placed the file in your working tree</span><br><span class="line">---</span><br><span class="line"><span class="meta">#</span>3. At this point, if you don't want to continue to merge, you can use the fllowing command to abort the merge:</span><br><span class="line"><span class="meta">$</span> git merge --abort</span><br><span class="line">---</span><br><span class="line"><span class="meta">#</span>3. Modifiy the file and resolve the merge conflict which requires human judgement and then make a commit</span><br><span class="line"><span class="meta">$</span> git add fileA.txt</span><br><span class="line"><span class="meta">$</span> git commit # This will open the default editor since you don't use '-m'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
+
+<h4 id="Note-5"><a href="#Note-5" class="headerlink" title="Note"></a>Note</h4><p>The conflicted hunks will be displaying just like this:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feature 1 # unconflicted</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">feature 3 # ours</span><br><span class="line">=======</span><br><span class="line">feature 2 # theirs</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;&gt;&gt;&gt;&gt; featureX</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Tracking-Branches"><a href="#Tracking-Branches" class="headerlink" title="Tracking Branches"></a>Tracking Branches</h2><h3 id="Tracking-Branch-Overview"><a href="#Tracking-Branch-Overview" class="headerlink" title="Tracking Branch Overview"></a>Tracking Branch Overview</h3><h4 id="What-Is-a-Tracking-Branch"><a href="#What-Is-a-Tracking-Branch" class="headerlink" title="What Is a Tracking Branch"></a>What Is a Tracking Branch</h4><ol>
+<li>A tracking branch is a local branch that represents a remote branch</li>
+<li>A tracking branch name is like <code>remotename/branchname</code></li>
+</ol>
+<h4 id="Note-6"><a href="#Note-6" class="headerlink" title="Note"></a>Note</h4><blockquote>
+<p>Tracking branches are only updated with network commands like clone, fetch, pull, and push</p>
+</blockquote>
+<h3 id="Viewing-Tracking-Branch"><a href="#Viewing-Tracking-Branch" class="headerlink" title="Viewing Tracking Branch"></a>Viewing Tracking Branch</h3><h4 id="How-to-Watch-the-Tracking-Branch"><a href="#How-to-Watch-the-Tracking-Branch" class="headerlink" title="How to Watch the Tracking Branch"></a>How to Watch the Tracking Branch</h4><h5 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h5><p> <code>git branch --all</code> to display all local and tracking branch names</p>
+<h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
+
+<h4 id="Special-Tracking-Branch"><a href="#Special-Tracking-Branch" class="headerlink" title="Special Tracking Branch"></a>Special Tracking Branch</h4><h5 id="HEAD-Reference-1"><a href="#HEAD-Reference-1" class="headerlink" title="HEAD Reference"></a>HEAD Reference</h5><blockquote>
+<p>A reference named <code>remotes/origin/HEAD</code> is a symbolic reference meaning that it is a reference that points to another reference, and this <strong>specifies the default remote tracking branch</strong></p>
+</blockquote>
+<h5 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master # the default remote tracking branch</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
+
+<h5 id="Note-7"><a href="#Note-7" class="headerlink" title="Note"></a>Note</h5><ul>
+<li>You can use only <code>&lt;remotename&gt;</code> name instead of the whole tracking branch name which is known as <code>remotename/branchname</code> in git command and in this case you will use the default remote tracking branch which is specified by <code>remotes/origin/HEAD</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log origin/master --oneline # see the commits of tracking branch origin/master</span><br><span class="line"><span class="meta">$</span> git log origin --oneline # the same as before by using the default tracking branch</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Change the default remote tracking branch with <code>git remote set-head &lt;remotename&gt; &lt;branch&gt;</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git remote set-head origin master</span><br><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
+
+<h3 id="Viewing-Tracking-Branch-Status"><a href="#Viewing-Tracking-Branch-Status" class="headerlink" title="Viewing Tracking Branch Status"></a>Viewing Tracking Branch Status</h3><ul>
+<li><code>git status</code> includes tracking branch status</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with 'origin/master'.</span><br><span class="line"><span class="meta">#</span> Means that since of the last time that we use a network command like fetch, we have the latest commit in our local repository</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>git status</code> will inform you if the cached tracking branch information is out of synchronous with your local  branch</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of `origin/master` by 1 commit</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Fetch-Pull-and-Push"><a href="#Fetch-Pull-and-Push" class="headerlink" title="Fetch, Pull and Push"></a>Fetch, Pull and Push</h2><h3 id="Network-Command-Overview"><a href="#Network-Command-Overview" class="headerlink" title="Network Command Overview"></a>Network Command Overview</h3><ul>
+<li><strong>Clone</strong> - Copies a remote repository</li>
+<li><strong>Fetch</strong> - Retrieves new objects and references from the remote repository</li>
+<li><strong>Pull</strong> - Fetches and merges commits locally</li>
+<li><strong>Push</strong> - Adds new objects and references to the remote repository</li>
+</ul>
+<h3 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h3><h4 id="What-Does-Fetch-Do"><a href="#What-Does-Fetch-Do" class="headerlink" title="What Does Fetch Do"></a>What Does Fetch Do</h4><ol>
+<li>Retrieves new objects and references from another repository</li>
+<li>Tracking branches are updated</li>
+<li>Does not impact the local branch labels</li>
+</ol>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log origin/master --oneline</span><br><span class="line">* 92dd144 (HEAD -&gt; master, origin/master, origin/HEAD) ...</span><br><span class="line"><span class="meta">$</span> git fetch</span><br><span class="line">remote: Enumerating objects: 4, done.</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (3/3), done.</span><br><span class="line">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (3/3), done.</span><br><span class="line">From ../url/to/projectname.git</span><br><span class="line">   92dd144..90fcaa3  master     -&gt; origin/master</span><br><span class="line"><span class="meta">$</span> git log origin/master --oneline</span><br><span class="line">90fcaa3 (origin/master, origin/HEAD) ...</span><br><span class="line">92dd144 (HEAD -&gt; master) ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="Graph-4"><a href="#Graph-4" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fetch.png" alt="fetch"></p>
+<h4 id="Note-8"><a href="#Note-8" class="headerlink" title="Note"></a>Note</h4><ul>
+<li><code>git status</code> will inform you that your current branch is behind the tracking branch</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.</span><br><span class="line">  (use "git pull" to update your local branch)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pull"><a href="#Pull" class="headerlink" title="Pull"></a>Pull</h3><h4 id="What-Does-Pull-Do"><a href="#What-Does-Pull-Do" class="headerlink" title="What Does Pull Do"></a>What Does Pull Do</h4><p>Combines <code>git fetch</code> and <code>git merge FETCH_HEAD</code> (FETCH_HEAD is an alias for the tip of the tracking branch)</p>
+<ul>
+<li>If objects are fetched, the tracking branch is merged into the current local branch</li>
+<li>This is similar to a topic branch merging into a base branch</li>
+</ul>
+<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull</span><br><span class="line">Updating 92dd144..90fcaa3</span><br><span class="line">Fast-forward</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="git-pull-Command-Options"><a href="#git-pull-Command-Options" class="headerlink" title="git pull Command Options"></a><code>git pull</code> Command Options</h4><ul>
+<li><code>--ff</code> (default) fast-forward if possible, otherwise perform merge commit</li>
+<li><code>--no-ff</code> -always include a merge commit</li>
+<li><code>--ff-only</code> only accepts fast-forward merges and Git will cancel the merge instead of doing a merge commit</li>
+</ul>
+<h4 id="Graph-5"><a href="#Graph-5" class="headerlink" title="Graph"></a>Graph</h4><h5 id="Pull-With-a-Fast-Forward-Merge"><a href="#Pull-With-a-Fast-Forward-Merge" class="headerlink" title="Pull With a Fast-Forward Merge"></a>Pull With a Fast-Forward Merge</h5><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20fast-forward%20merge.png" alt="pull with a fast-forward merge"></p>
+<h5 id="Pull-With-A-Merge-Commit"><a href="#Pull-With-A-Merge-Commit" class="headerlink" title="Pull With A Merge Commit"></a>Pull With A Merge Commit</h5><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20merge%20commit.png" alt="pull with a merge commit"></p>
+<h3 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h3><h4 id="How-to-Push-1"><a href="#How-to-Push-1" class="headerlink" title="How to Push"></a>How to Push</h4><p><code>git push [-u] [repository] [branch]</code></p>
+<ul>
+<li><code>-u</code> Track this branch (<code>--set--upstream</code>)</li>
+</ul>
+<h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (3/3), done.</span><br><span class="line">Writing objects: 100% (3/3), 1.04 KiB | 354.00 KiB/s, done.</span><br><span class="line">Total 3 (delta 2), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span><br><span class="line">To ../url/to/projectname.git</span><br><span class="line">   8b42715..7c42389  master -&gt; master</span><br><span class="line">Branch 'master' set up to track remote branch 'master' from 'origin'.</span><br></pre></td></tr></table></figure>
+
+<h4 id="Note-9"><a href="#Note-9" class="headerlink" title="Note"></a>Note</h4><blockquote>
+<p>Fetching or pulling before you push is suggested</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/wexin.jpg" alt="wangyuxiang0829 wechat" style="width: 200px; max-width: 100%;">
+  <div>扫一扫关注我的微信公众号</div>
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/06/Linux/" rel="prev" title="Linux初探">
+                Linux初探 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/dream.jpg" alt="wangyuxiang0829">
+            
+              <p class="site-author-name" itemprop="name">wangyuxiang0829</p>
+              <div class="site-description motion-element" itemprop="description">Do What I Love</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wangyuxiang0829" title="GitHub &rarr; https://github.com/wangyuxiang0829" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/yuxiangwang0829@gmail.com" title="E-Mail &rarr; yuxiangwang0829@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Overview"><span class="nav-number">1.</span> <span class="nav-text">Git Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Git"><span class="nav-number">1.1.</span> <span class="nav-text">What is Git?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-a-Git-Repository"><span class="nav-number">1.2.</span> <span class="nav-text">What is a Git Repository?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuring-User-Information"><span class="nav-number">2.1.</span> <span class="nav-text">Configuring User Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuring-the-Default-Editor"><span class="nav-number">2.2.</span> <span class="nav-text">Configuring the Default Editor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Locations"><span class="nav-number">3.</span> <span class="nav-text">Git Locations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-Directory"><span class="nav-number">3.1.</span> <span class="nav-text">Project Directory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-Tree"><span class="nav-number">3.1.1.</span> <span class="nav-text">Working Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Staging-Area-Index"><span class="nav-number">3.1.2.</span> <span class="nav-text">Staging Area/Index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-Repository"><span class="nav-number">3.1.3.</span> <span class="nav-text">Local Repository</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-Directory"><span class="nav-number">3.1.4.</span> <span class="nav-text">.git Directory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Remote-Repository"><span class="nav-number">3.2.</span> <span class="nav-text">Remote Repository</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-Local-Repository"><span class="nav-number">4.</span> <span class="nav-text">Create a Local Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commit-to-a-Local-Repository"><span class="nav-number">5.</span> <span class="nav-text">Commit to a Local Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Push-to-a-Remote-Repository"><span class="nav-number">6.</span> <span class="nav-text">Push to a Remote Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-clone-vs-git-remote-add"><span class="nav-number">6.1.</span> <span class="nav-text">git clone vs. git remote add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-a-Remote-Repository"><span class="nav-number">6.2.</span> <span class="nav-text">Clone a Remote Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-Clone"><span class="nav-number">6.2.1.</span> <span class="nav-text">How to Clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Clone-Do"><span class="nav-number">6.2.2.</span> <span class="nav-text">What Does Clone Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note"><span class="nav-number">6.2.3.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-a-Remote-Repository-to-a-Local-Repository"><span class="nav-number">6.3.</span> <span class="nav-text">Add a Remote Repository to a Local Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Push-Commits-to-a-Remote-Repository"><span class="nav-number">6.4.</span> <span class="nav-text">Push Commits to a Remote Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Branch"><span class="nav-number">6.4.1.</span> <span class="nav-text">Default Branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-Push"><span class="nav-number">6.4.2.</span> <span class="nav-text">How to Push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Push-Do"><span class="nav-number">6.4.3.</span> <span class="nav-text">What Does Push Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1"><span class="nav-number">6.4.4.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git’s-Graph-Model"><span class="nav-number">7.</span> <span class="nav-text">Git’s Graph Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-IDs"><span class="nav-number">8.</span> <span class="nav-text">Git IDs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-Objects"><span class="nav-number">8.1.</span> <span class="nav-text">Git Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-ID"><span class="nav-number">8.2.</span> <span class="nav-text">Git ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shortening-Git-IDs"><span class="nav-number">8.3.</span> <span class="nav-text">Shortening Git IDs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">9.</span> <span class="nav-text">References</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-of-References"><span class="nav-number">9.1.</span> <span class="nav-text">Overview of References</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-Label-and-HEAD-Reference"><span class="nav-number">9.2.</span> <span class="nav-text">Branch Label and HEAD Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Branch-Label-References"><span class="nav-number">9.2.1.</span> <span class="nav-text">Branch Label References</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HEAD-Reference"><span class="nav-number">9.2.2.</span> <span class="nav-text">HEAD Reference</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag-Reference"><span class="nav-number">9.3.</span> <span class="nav-text">Tag Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tag-Overview"><span class="nav-number">9.3.1.</span> <span class="nav-text">Tag Overview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-and-View-tags"><span class="nav-number">9.3.2.</span> <span class="nav-text">Create and View tags</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Commands"><span class="nav-number">9.3.2.1.</span> <span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Examples"><span class="nav-number">9.3.2.2.</span> <span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Notice"><span class="nav-number">9.3.3.</span> <span class="nav-text">Notice</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branches"><span class="nav-number">10.</span> <span class="nav-text">Branches</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch-Overview"><span class="nav-number">10.1.</span> <span class="nav-text">Branch Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Features"><span class="nav-number">10.1.1.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type"><span class="nav-number">10.1.2.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Look-Over"><span class="nav-number">10.1.3.</span> <span class="nav-text">Look Over</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-a-branch"><span class="nav-number">10.2.</span> <span class="nav-text">Creating a branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Commands-1"><span class="nav-number">10.2.1.</span> <span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2"><span class="nav-number">10.2.2.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkout"><span class="nav-number">10.3.</span> <span class="nav-text">Checkout</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Checkout-Will-Do"><span class="nav-number">10.3.1.</span> <span class="nav-text">What Checkout Will Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-To-Checkout"><span class="nav-number">10.3.2.</span> <span class="nav-text">How To Checkout</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Detached-HEAD"><span class="nav-number">10.4.</span> <span class="nav-text">Detached HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deleting-a-Branch-Label"><span class="nav-number">10.5.</span> <span class="nav-text">Deleting a Branch Label</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-Delete"><span class="nav-number">10.5.1.</span> <span class="nav-text">How to Delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deleting-a-not-Merged-Branch-is-Forbidden"><span class="nav-number">10.5.2.</span> <span class="nav-text">Deleting a not Merged Branch is Forbidden</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge"><span class="nav-number">11.</span> <span class="nav-text">Merge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-Overview"><span class="nav-number">11.1.</span> <span class="nav-text">Merge Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Merge-Do"><span class="nav-number">11.1.1.</span> <span class="nav-text">What Does Merge Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-of-Merge"><span class="nav-number">11.1.2.</span> <span class="nav-text">Type of Merge</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fast-forward-Merge"><span class="nav-number">11.2.</span> <span class="nav-text">Fast-forward Merge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Fast-forward-Merge-Do"><span class="nav-number">11.2.1.</span> <span class="nav-text">What Does Fast-forward Merge Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph"><span class="nav-number">11.2.2.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-3"><span class="nav-number">11.2.3.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example"><span class="nav-number">11.2.4.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-Commit"><span class="nav-number">11.3.</span> <span class="nav-text">Merge Commit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Merge-Commit-Do"><span class="nav-number">11.3.1.</span> <span class="nav-text">What Does Merge Commit Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-1"><span class="nav-number">11.3.2.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-1"><span class="nav-number">11.3.3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Not-Fast-Forwardable"><span class="nav-number">11.3.3.1.</span> <span class="nav-text">Not Fast Forwardable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Is-Fast-Forwardable"><span class="nav-number">11.3.3.2.</span> <span class="nav-text">Is Fast Forwardable</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resolving-Merge-Conflicts"><span class="nav-number">12.</span> <span class="nav-text">Resolving Merge Conflicts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-Conflict-Overview"><span class="nav-number">12.1.</span> <span class="nav-text">Merge Conflict Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hunk"><span class="nav-number">12.1.1.</span> <span class="nav-text">Hunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#When-Does-Merge-Conflict-occur"><span class="nav-number">12.1.2.</span> <span class="nav-text">When Does Merge Conflict occur</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-2"><span class="nav-number">12.1.3.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-4"><span class="nav-number">12.1.4.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resolving-a-Merge-Conflict"><span class="nav-number">12.2.</span> <span class="nav-text">Resolving a Merge Conflict</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-3"><span class="nav-number">12.2.1.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-2"><span class="nav-number">12.2.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-5"><span class="nav-number">12.2.3.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tracking-Branches"><span class="nav-number">13.</span> <span class="nav-text">Tracking Branches</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tracking-Branch-Overview"><span class="nav-number">13.1.</span> <span class="nav-text">Tracking Branch Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Is-a-Tracking-Branch"><span class="nav-number">13.1.1.</span> <span class="nav-text">What Is a Tracking Branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-6"><span class="nav-number">13.1.2.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewing-Tracking-Branch"><span class="nav-number">13.2.</span> <span class="nav-text">Viewing Tracking Branch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-Watch-the-Tracking-Branch"><span class="nav-number">13.2.1.</span> <span class="nav-text">How to Watch the Tracking Branch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Command"><span class="nav-number">13.2.1.1.</span> <span class="nav-text">Command</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example-3"><span class="nav-number">13.2.1.2.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Special-Tracking-Branch"><span class="nav-number">13.2.2.</span> <span class="nav-text">Special Tracking Branch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HEAD-Reference-1"><span class="nav-number">13.2.2.1.</span> <span class="nav-text">HEAD Reference</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example-4"><span class="nav-number">13.2.2.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Note-7"><span class="nav-number">13.2.2.3.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Viewing-Tracking-Branch-Status"><span class="nav-number">13.3.</span> <span class="nav-text">Viewing Tracking Branch Status</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-Pull-and-Push"><span class="nav-number">14.</span> <span class="nav-text">Fetch, Pull and Push</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-Command-Overview"><span class="nav-number">14.1.</span> <span class="nav-text">Network Command Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fetch"><span class="nav-number">14.2.</span> <span class="nav-text">Fetch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Fetch-Do"><span class="nav-number">14.2.1.</span> <span class="nav-text">What Does Fetch Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-5"><span class="nav-number">14.2.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-4"><span class="nav-number">14.2.3.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-8"><span class="nav-number">14.2.4.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pull"><span class="nav-number">14.3.</span> <span class="nav-text">Pull</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Does-Pull-Do"><span class="nav-number">14.3.1.</span> <span class="nav-text">What Does Pull Do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-6"><span class="nav-number">14.3.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-pull-Command-Options"><span class="nav-number">14.3.3.</span> <span class="nav-text">git pull Command Options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-5"><span class="nav-number">14.3.4.</span> <span class="nav-text">Graph</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Pull-With-a-Fast-Forward-Merge"><span class="nav-number">14.3.4.1.</span> <span class="nav-text">Pull With a Fast-Forward Merge</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pull-With-A-Merge-Commit"><span class="nav-number">14.3.4.2.</span> <span class="nav-text">Pull With A Merge Commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Push"><span class="nav-number">14.4.</span> <span class="nav-text">Push</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-Push-1"><span class="nav-number">14.4.1.</span> <span class="nav-text">How to Push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-7"><span class="nav-number">14.4.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-9"><span class="nav-number">14.4.3.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangyuxiang0829</span>
+
+  
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

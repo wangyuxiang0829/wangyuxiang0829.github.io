@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=7.1.0" color="#222">
+
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="走进命令行的世界">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux初探">
+<meta property="og:url" content="http://yoursite.com/2019/07/06/Linux/index.html">
+<meta property="og:site_name" content="wangyuxiang0829">
+<meta property="og:description" content="走进命令行的世界">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-13T13:24:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux初探">
+<meta name="twitter:description" content="走进命令行的世界">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/06/Linux/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux初探 | wangyuxiang0829</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wangyuxiang0829</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/wangyuxiang0829" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangyuxiang0829">
+      <meta itemprop="description" content="Do What I Love">
+      <meta itemprop="image" content="/uploads/dream.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangyuxiang0829">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux初探
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-06 02:16:16" itemprop="dateCreated datePublished" datetime="2019-07-06T02:16:16+00:00">2019-07-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-13 13:24:24" itemprop="dateModified" datetime="2019-04-13T13:24:24+00:00">2019-04-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>走进命令行的世界</strong></p>
+<a id="more"></a>
+
+<h1 id="Linux初探"><a href="#Linux初探" class="headerlink" title="Linux初探"></a>Linux初探</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="日期与时间"><a href="#日期与时间" class="headerlink" title="日期与时间"></a>日期与时间</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> date # 查看当前时间</span><br><span class="line">Sat Apr 13 14:46:18 DST 2019</span><br><span class="line"><span class="meta">$</span> cal # 查看当月日历</span><br><span class="line">     April 2019</span><br><span class="line">Su Mo Tu We Th Fr Sa</span><br><span class="line">    1  2  3  4  5  6</span><br><span class="line"> 7  8  9 10 11 12 13</span><br><span class="line">14 15 16 17 18 19 20</span><br><span class="line">21 22 23 24 25 26 27</span><br><span class="line">28 29 30</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> cal 2019 # 查看2019年日历</span><br><span class="line">                            2019</span><br><span class="line">      January               February               March</span><br><span class="line">Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa</span><br><span class="line">       1  2  3  4  5                  1  2                  1  2</span><br><span class="line"> 6  7  8  9 10 11 12   3  4  5  6  7  8  9   3  4  5  6  7  8  9</span><br><span class="line">13 14 15 16 17 18 19  10 11 12 13 14 15 16  10 11 12 13 14 15 16</span><br><span class="line">20 21 22 23 24 25 26  17 18 19 20 21 22 23  17 18 19 20 21 22 23</span><br><span class="line">27 28 29 30 31        24 25 26 27 28        24 25 26 27 28 29 30</span><br><span class="line">                                            31</span><br><span class="line"></span><br><span class="line">       April                  May                   June</span><br><span class="line">Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa</span><br><span class="line">    1  2  3  4  5  6            1  2  3  4                     1</span><br><span class="line"> 7  8  9 10 11 12 13   5  6  7  8  9 10 11   2  3  4  5  6  7  8</span><br><span class="line">14 15 16 17 18 19 20  12 13 14 15 16 17 18   9 10 11 12 13 14 15</span><br><span class="line">21 22 23 24 25 26 27  19 20 21 22 23 24 25  16 17 18 19 20 21 22</span><br><span class="line">28 29 30              26 27 28 29 30 31     23 24 25 26 27 28 29</span><br><span class="line">                                            30</span><br><span class="line"></span><br><span class="line">        July                 August              September</span><br><span class="line">Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa</span><br><span class="line">    1  2  3  4  5  6               1  2  3   1  2  3  4  5  6  7</span><br><span class="line"> 7  8  9 10 11 12 13   4  5  6  7  8  9 10   8  9 10 11 12 13 14</span><br><span class="line">14 15 16 17 18 19 20  11 12 13 14 15 16 17  15 16 17 18 19 20 21</span><br><span class="line">21 22 23 24 25 26 27  18 19 20 21 22 23 24  22 23 24 25 26 27 28</span><br><span class="line">28 29 30 31           25 26 27 28 29 30 31  29 30</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      October               November              December</span><br><span class="line">Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa</span><br><span class="line">       1  2  3  4  5                  1  2   1  2  3  4  5  6  7</span><br><span class="line"> 6  7  8  9 10 11 12   3  4  5  6  7  8  9   8  9 10 11 12 13 14</span><br><span class="line">13 14 15 16 17 18 19  10 11 12 13 14 15 16  15 16 17 18 19 20 21</span><br><span class="line">20 21 22 23 24 25 26  17 18 19 20 21 22 23  22 23 24 25 26 27 28</span><br><span class="line">27 28 29 30 31        24 25 26 27 28 29 30  29 30 31</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> cal 1 2019 # 查看2019年1月日历</span><br><span class="line">    January 2019</span><br><span class="line">Su Mo Tu We Th Fr Sa</span><br><span class="line">       1  2  3  4  5</span><br><span class="line"> 6  7  8  9 10 11 12</span><br><span class="line">13 14 15 16 17 18 19</span><br><span class="line">20 21 22 23 24 25 26</span><br><span class="line">27 28 29 30 31</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~ # 切换到家目录</span><br><span class="line"><span class="meta">$</span> mkdir tutorial # 创建目录</span><br><span class="line"><span class="meta">$</span> ls # 查看当前目录信息</span><br><span class="line">tutorial</span><br><span class="line"><span class="meta">$</span> cd tutorial/ # 切换到tutorial目录</span><br><span class="line"><span class="meta">$</span> ls # 没有输出，则目录为空</span><br><span class="line"><span class="meta">$</span> touch file1.txt # 创建文件</span><br><span class="line"><span class="meta">$</span> touch file2.txt # 创建文件</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt  file2.txt # 创建的文件</span><br><span class="line"><span class="meta">$</span> vim file1.txt # 修改文件内容</span><br><span class="line"><span class="meta">$</span> vim file2.txt # 修改文件内容</span><br><span class="line"><span class="meta">$</span> cat file1.txt # 输出文件内容</span><br><span class="line">hello1</span><br><span class="line"><span class="meta">$</span> cat file2.txt # 输出文件内容</span><br><span class="line">hello2</span><br><span class="line"><span class="meta">$</span> cp file1.txt file3.txt # 复制文件</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt  file2.txt  file3.txt</span><br><span class="line"><span class="meta">$</span> cat file1.txt</span><br><span class="line">hello1</span><br><span class="line"><span class="meta">$</span> cat file3.txt</span><br><span class="line">hello1</span><br><span class="line"><span class="meta">$</span> diff file1.txt file3.txt # 列出连个文件的不同之处，没有输出说明完全相同</span><br><span class="line"><span class="meta">$</span> diff file1.txt file2.txt</span><br><span class="line">1c1</span><br><span class="line">&lt; hello1</span><br><span class="line">---</span><br><span class="line"><span class="meta">&gt;</span> hello2</span><br><span class="line"><span class="meta">$</span> mv file1.txt helloworld.txt # 对文件重命名</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file2.txt file3.txt helloworld.txt</span><br><span class="line"><span class="meta">$</span> mv helloworld.txt ../ # 移动文件到指定目录(这里指上一级目录)</span><br><span class="line"><span class="meta">$</span> rm file2.txt # 删除文件</span><br><span class="line"><span class="meta">$</span> rm file3.txt</span><br><span class="line"><span class="meta">$</span> rmdir tutorial/ # 删除目录，不能删除非空目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件查看"><a href="#文件查看" class="headerlink" title="文件查看"></a>文件查看</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat invictus # 输出文件内容</span><br><span class="line">Out of the night that covers me,</span><br><span class="line"></span><br><span class="line">Black as the pit from pole to pole,</span><br><span class="line">I thank whatever gods may be,</span><br><span class="line">For my unconquerable soul,</span><br><span class="line">In the fell clutch of circumstance,</span><br><span class="line">I have not winced nor cried aloud,</span><br><span class="line">Under the bludgeoning of chance,</span><br><span class="line">My head if bloody, but unbowed,</span><br><span class="line"></span><br><span class="line">Beyond this place of wrath and tear,</span><br><span class="line"></span><br><span class="line">Looms but the Horror of the shade,</span><br><span class="line">And yet the menace of the years,</span><br><span class="line">Finds, and shall find, me unafraid,</span><br><span class="line">It matters not how strait the gate,</span><br><span class="line">How charged with punishments the scroll,</span><br><span class="line">I am the master of my fate,</span><br><span class="line">I am the captain of my soul.</span><br><span class="line"><span class="meta">$</span> head invictus -n 5 # 只显示文件前5行</span><br><span class="line">Out of the night that covers me,</span><br><span class="line"></span><br><span class="line">Black as the pit from pole to pole,</span><br><span class="line">I thank whatever gods may be,</span><br><span class="line">For my unconquerable soul,</span><br><span class="line"><span class="meta">$</span> tail invictus -n 5 #只显示文件后5行</span><br><span class="line">Finds, and shall find, me unafraid,</span><br><span class="line">It matters not how strait the gate,</span><br><span class="line">How charged with punishments the scroll,</span><br><span class="line">I am the master of my fate,</span><br><span class="line">I am the captain of my soul.</span><br><span class="line"><span class="meta">$</span> wc invictus # 查看文件行数与单词数以及大小</span><br><span class="line"> 19 103 559 invictus # 19行 103个单词 559个字节 文件名称</span><br></pre></td></tr></table></figure>
+
+<h3 id="命令路径查看"><a href="#命令路径查看" class="headerlink" title="命令路径查看"></a>命令路径查看</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> which git # 查看某个命令的路径</span><br><span class="line">/usr/bin/git</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="文件结构与权限"><a href="#文件结构与权限" class="headerlink" title="文件结构与权限"></a>文件结构与权限</h2><h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>Linux文件属性</p>
+<ol>
+<li>用户身份<ol>
+<li>拥有者(user)</li>
+<li>用户组(group)</li>
+<li>其他人(others)</li>
+</ol>
+</li>
+<li>权限<ol>
+<li>可读(r)<ol>
+<li>对于文件：可以使用类似cat命令查看</li>
+<li>对于目录：可以使用类似ls命令查看</li>
+</ol>
+</li>
+<li>可写(w)<ol>
+<li>对于文件：可以使用类似vim命令进行更改</li>
+<li>对于目录：可以使用类似touch命令在目录中创建新文件</li>
+</ol>
+</li>
+<li>可执行(x)<ol>
+<li>对于文件：可以运行</li>
+<li>对于目录：可以使用类似cd命令进入</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>类型<ol>
+<li>目录(d)</li>
+<li>文件(-)</li>
+<li>链接(l)</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pwd # 查看当前路径</span><br><span class="line">/home/wangyuxiang0829</span><br><span class="line"><span class="meta">$</span> cd / # 切换到根目录</span><br><span class="line"><span class="meta">$</span> ls # 查看当前目录信息</span><br><span class="line">bin   dev  home  lib    lib64   media  opt   root  sbin  sys  usr</span><br><span class="line">boot  etc  init  lib32  libx32  mnt    proc  run   srv   tmp  var</span><br><span class="line"><span class="meta">$</span> ls -l # 查看当前目录详细信息</span><br><span class="line">total 88</span><br><span class="line">lrwxrwxrwx  1 root root     7 Feb 20 00:30 bin -&gt; usr/bin</span><br><span class="line">drwxr-xr-x  1 root root   512 Nov 29 21:49 boot</span><br><span class="line">drwxr-xr-x  1 root root   512 Apr  8 11:21 dev</span><br><span class="line">drwxr-xr-x  1 root root   512 Apr  6 22:18 etc</span><br><span class="line">drwxr-xr-x  1 root root   512 Apr  6 22:18 home</span><br><span class="line">-rwxr-xr-x  1 root root 87944 Jan  1  1970 init</span><br><span class="line">lrwxrwxrwx  1 root root     7 Feb 20 00:30 lib -&gt; usr/lib</span><br><span class="line">lrwxrwxrwx  1 root root     9 Feb 20 00:30 lib32 -&gt; usr/lib32</span><br><span class="line">lrwxrwxrwx  1 root root     9 Feb 20 00:30 lib64 -&gt; usr/lib64</span><br><span class="line">lrwxrwxrwx  1 root root    10 Feb 20 00:30 libx32 -&gt; usr/libx32</span><br><span class="line">drwxr-xr-x  1 root root   512 Feb 20 00:30 media</span><br><span class="line">drwxr-xr-x  1 root root   512 Apr  6 22:17 mnt</span><br><span class="line">drwxr-xr-x  1 root root   512 Feb 20 00:30 opt</span><br><span class="line">dr-xr-xr-x  9 root root     0 Apr  8 11:21 proc</span><br><span class="line">drwx------  1 root root   512 Feb 20 00:30 root</span><br><span class="line">drwxr-xr-x  1 root root   512 Apr  8 11:21 run</span><br><span class="line">lrwxrwxrwx  1 root root     8 Feb 20 00:30 sbin -&gt; usr/sbin</span><br><span class="line">drwxr-xr-x  1 root root   512 Feb 20 00:30 srv</span><br><span class="line">dr-xr-xr-x 12 root root     0 Apr  8 11:21 sys</span><br><span class="line">drwxrwxrwt  1 root root   512 Feb 20 00:34 tmp</span><br><span class="line">drwxr-xr-x  1 root root   512 Feb 20 00:30 usr</span><br><span class="line">drwxr-xr-x  1 root root   512 Feb 20 00:30 var</span><br></pre></td></tr></table></figure>
+
+<h3 id="权限更改"><a href="#权限更改" class="headerlink" title="权限更改"></a>权限更改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line"><span class="meta">$</span> touch file1.txt # 创建文件</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt # 刚创建的文件</span><br><span class="line"><span class="meta">$</span> ls -l file1.txt # 列出文件属性</span><br><span class="line">-rw-rw-rw- 1 wangyuxiang0829 wangyuxiang0829   0 Apr 10 22:49 file1.txt</span><br><span class="line"><span class="meta">$</span> chmod 777 file1.txt # 更改文件权限</span><br><span class="line"><span class="meta">$</span> ls -l file1.txt # 列出文件属性</span><br><span class="line">-rwxrwxrwx 1 wangyuxiang0829 wangyuxiang0829   0 Apr 10 22:49 file1.txt</span><br><span class="line"><span class="meta">$</span> chmod 000 file1.txt # 更改文件权限</span><br><span class="line"><span class="meta">$</span> ls -l file1.txt # 列出文件属性</span><br><span class="line">---------- 1 wangyuxiang0829 wangyuxiang0829   0 Apr 10 22:49 file1.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="grep命令与正则表达式"><a href="#grep命令与正则表达式" class="headerlink" title="grep命令与正则表达式"></a>grep命令与正则表达式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls</span><br><span class="line">invictus</span><br><span class="line"><span class="meta">$</span> cat invictus</span><br><span class="line">Out of the night that covers me,</span><br><span class="line"></span><br><span class="line">Black as the pit from pole to pole,</span><br><span class="line">I thank whatever gods may be,</span><br><span class="line">For my unconquerable soul,</span><br><span class="line">In the fell clutch of circumstance,</span><br><span class="line">I have not winced nor cried aloud,</span><br><span class="line">Under the bludgeoning of chance,</span><br><span class="line">My head if bloody, but unbowed,</span><br><span class="line"></span><br><span class="line">Beyond this place of wrath and tear,</span><br><span class="line"></span><br><span class="line">Looms but the Horror of the shade,</span><br><span class="line">And yet the menace of the years,</span><br><span class="line">Finds, and shall find, me unafraid,</span><br><span class="line">It matters not how strait the gate,</span><br><span class="line">How charged with punishments the scroll,</span><br><span class="line">I am the master of my fate,</span><br><span class="line">I am the captain of my soul.</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep Out invictus # 在指定文件中查找所有与字符串"Out"匹配的行</span><br><span class="line"></span><br><span class="line">`Out` of the night that covers me,</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep of invictus # 在指定文件中查找所有与字符串"of"匹配的行</span><br><span class="line"></span><br><span class="line">Out `of` the night that covers me,</span><br><span class="line">In the fell clutch `of` circumstance,</span><br><span class="line">Under the bludgeoning `of` chance,</span><br><span class="line">Beyond this place `of` wrath and tear,</span><br><span class="line">Looms but the Horror `of` the shade,</span><br><span class="line">And yet the menace `of` the years,</span><br><span class="line">I am the master `of` my fate,</span><br><span class="line">I am the captain `of` my soul.</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep c.*n invictus # 正则表达式，表示字符'c'与'n'之间含有零个或多个任意字符</span><br><span class="line"></span><br><span class="line">For my un`con`querable soul,</span><br><span class="line">In the fell `clutch of circumstan`ce,</span><br><span class="line">I have not win`ced n`or cried aloud,</span><br><span class="line">Under the bludgeoning of `chan`ce,</span><br><span class="line">Beyond this pla`ce of wrath an`d tear,</span><br><span class="line">How `charged with punishmen`ts the scroll,</span><br><span class="line">I am the `captain` of my soul.</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep [Aa]nd invictus # 正则表达式，表示字符'A'或者'a'后跟字符串"nd"</span><br><span class="line"></span><br><span class="line">Beyond this place of wrath `and` tear,</span><br><span class="line">`And` yet the menace of the years,</span><br><span class="line">Finds, `and` shall find, me unafraid,</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep [A-Za-z]ou invictus # 正则表达式，表示一个任意的大写字母或者一个任意的小写字母后跟字符串"ou"</span><br><span class="line"></span><br><span class="line">For my unconquerable `sou`l,</span><br><span class="line">I have not winced nor cried a`lou`d,</span><br><span class="line">I am the captain of my `sou`l.</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> grep [A-Za-z]ou invictus | wc # 将正则表达式的输出结果使用wc命令进行统计</span><br><span class="line">3      18      94 # 3行，18个单词，94个字节</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> a=10</span><br><span class="line"><span class="meta">$</span> echo $a</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo $USER ##当前登陆系统的用户的用户名</span><br><span class="line">wangyuxiang0829</span><br><span class="line"><span class="meta">$</span> echo $HOME ##当前用户的主目录</span><br><span class="line">/home/wangyuxiang0829</span><br><span class="line"><span class="meta">$</span> cd $HOME ##切换到用户主目录</span><br><span class="line"><span class="meta">$</span> cd ~ ##另一种方式切换到用户主目录</span><br><span class="line"><span class="meta">$</span> echo ~ ##等价于$HOME</span><br><span class="line">/home/wangyuxiang0829</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> echo $PATH ##等价于windows中环境变量-&gt;系统变量-&gt;Path</span><br><span class="line">...</span><br><span class="line"><span class="meta">$</span> PATH=$PATH:/home/wangyuxiang0829/workspace ##添加某个路径进环境变量</span><br><span class="line"><span class="meta">$</span> echo $SHELL ##当前用户的默认shell</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="打包与解包"><a href="#打包与解包" class="headerlink" title="打包与解包"></a>打包与解包</h2><h3 id="zip与unzip"><a href="#zip与unzip" class="headerlink" title="zip与unzip"></a>zip与unzip</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls # 空目录</span><br><span class="line"><span class="meta">$</span> touch file1.txt # 创建文件</span><br><span class="line"><span class="meta">$</span> touch file2.txt # 创建文件</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt  file2.txt</span><br><span class="line"><span class="meta">$</span> zip file.zip file1.txt file2.txt # 将file1.txt文件和file2.txt文件打包为file.zip文件</span><br><span class="line">  adding: file1.txt (stored 0%)</span><br><span class="line">  adding: file2.txt (stored 0%)</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file.zip  file1.txt  file2.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果需要打包的文件很多，则可以使用<code>-r</code>选项来递归的打包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>## 该shell脚本将在该目录下创建10个文本文件</span><br><span class="line">a=1</span><br><span class="line">while [ $a -le 10 ]</span><br><span class="line">do</span><br><span class="line">        touch file$a.txt</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">        echo $a</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们运行以上脚本来产生足够多的文件，并使用<code>zip -r</code>命令全部打包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls</span><br><span class="line">test.sh</span><br><span class="line"><span class="meta">$</span> sh test.sh # 执行test.sh脚本，创建多个文件</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt  file10.txt  file2.txt  file3.txt  file4.txt  file5.txt  file6.txt  file7.txt  file8.txt  file9.txt  test.sh</span><br><span class="line"><span class="meta">$</span> zip -r file.zip ./ # 将当前目录下的所有文件打包为file.zip文件</span><br><span class="line">  adding: file1.txt (stored 0%)</span><br><span class="line">  adding: file10.txt (stored 0%)</span><br><span class="line">  adding: file2.txt (stored 0%)</span><br><span class="line">  adding: file3.txt (stored 0%)</span><br><span class="line">  adding: file4.txt (stored 0%)</span><br><span class="line">  adding: file5.txt (stored 0%)</span><br><span class="line">  adding: file6.txt (stored 0%)</span><br><span class="line">  adding: file7.txt (stored 0%)</span><br><span class="line">  adding: file8.txt (stored 0%)</span><br><span class="line">  adding: file9.txt (stored 0%)</span><br><span class="line">  adding: test.sh (deflated 7%)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>既然打包完成了，我们可以使用<code>unzip</code>命令对<code>.zip</code>文件解包，可以使用<code>-d</code>选项指定输出目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir unzip # 创建unzip/目录，之后会解包到该目录</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file.zip   file10.txt  file3.txt  file5.txt  file7.txt  file9.txt  unzip</span><br><span class="line">file1.txt  file2.txt   file4.txt  file6.txt  file8.txt  test.sh</span><br><span class="line"><span class="meta">$</span> unzip file.zip -d unzip/ # 将file.zip文件解包到unzip/目录</span><br><span class="line">Archive:  file.zip</span><br><span class="line"> extracting: unzip/file1.txt</span><br><span class="line"> extracting: unzip/file10.txt</span><br><span class="line"> extracting: unzip/file2.txt</span><br><span class="line"> extracting: unzip/file3.txt</span><br><span class="line"> extracting: unzip/file4.txt</span><br><span class="line"> extracting: unzip/file5.txt</span><br><span class="line"> extracting: unzip/file6.txt</span><br><span class="line"> extracting: unzip/file7.txt</span><br><span class="line"> extracting: unzip/file8.txt</span><br><span class="line"> extracting: unzip/file9.txt</span><br><span class="line">  inflating: unzip/test.sh</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file.zip   file10.txt  file3.txt  file5.txt  file7.txt  file9.txt  unzip</span><br><span class="line">file1.txt  file2.txt   file4.txt  file6.txt  file8.txt  test.sh</span><br><span class="line"><span class="meta">$</span> cd unzip/</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">file1.txt  file10.txt  file2.txt  file3.txt  file4.txt  file5.txt  file6.txt  file7.txt  file8.txt  file9.txt  test.sh # 解包出来的文件</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>有时候我们并不像解压，只是简单的查看<code>.zip</code>文件中所包含的内容，则可以使用<code>unzip -l</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> unzip -l file.zip # 使用-l选项列出file.zip中所包含的所有文件</span><br><span class="line">Archive:  file.zip</span><br><span class="line">  Length      Date    Time    Name</span><br><span class="line">---------  ---------- -----   ----</span><br><span class="line">        0  2019-04-12 19:37   file1.txt</span><br><span class="line">        0  2019-04-12 19:37   file10.txt</span><br><span class="line">        0  2019-04-12 19:37   file2.txt</span><br><span class="line">        0  2019-04-12 19:37   file3.txt</span><br><span class="line">        0  2019-04-12 19:37   file4.txt</span><br><span class="line">        0  2019-04-12 19:37   file5.txt</span><br><span class="line">        0  2019-04-12 19:37   file6.txt</span><br><span class="line">        0  2019-04-12 19:37   file7.txt</span><br><span class="line">        0  2019-04-12 19:37   file8.txt</span><br><span class="line">        0  2019-04-12 19:37   file9.txt</span><br><span class="line">       76  2019-04-12 19:37   test.sh</span><br><span class="line">---------                     -------</span><br><span class="line">       76                     11 files</span><br></pre></td></tr></table></figure>
+
+<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tar --help</span><br><span class="line">Usage: tar [OPTION...] [FILE]...</span><br><span class="line">GNU 'tar' saves many files together into a single tape or disk archive, and can restore individual files from the archive.</span><br><span class="line"><span class="meta">#</span> -c 压缩(compress)</span><br><span class="line"><span class="meta">#</span> -x 提取(extract)</span><br><span class="line"><span class="meta">#</span> -v 显示详细过程(verbose)</span><br><span class="line"><span class="meta">#</span> -t 仅显示一个归档文件中的所有文件(list)</span><br><span class="line"><span class="meta">#</span> -f 指定文件名称(需要是最后一个参数)(file)</span><br><span class="line"><span class="meta">#</span>#Examples:</span><br><span class="line">  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.</span><br><span class="line">  tar -tvf archive.tar         # List all files in archive.tar verbosely.</span><br><span class="line">  tar -xf archive.tar          # Extract all files from archive.tar.</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="压缩与提取"><a href="#压缩与提取" class="headerlink" title="压缩与提取"></a>压缩与提取</h2><h3 id="xz"><a href="#xz" class="headerlink" title=".xz"></a>.xz</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> xz --help</span><br><span class="line">Usage: xz [OPTION]... [FILE]...</span><br><span class="line">Compress or decompress FILEs in the .xz format.</span><br><span class="line"><span class="meta">#</span> -z 压缩(compress)</span><br><span class="line"><span class="meta">#</span> -d 解压缩(decompress)</span><br><span class="line"><span class="meta">#</span>#Examples:</span><br><span class="line">	xz -d filename.tar.xz	# 将会生成filename.tar文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="bz2"><a href="#bz2" class="headerlink" title=".bz2"></a>.bz2</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> bzip2 --help</span><br><span class="line">bzip2, a block-sorting file compressor.  Version 1.0.6, 6-Sept-2010.</span><br><span class="line">   usage: bzip2 [flags and input files in any order]</span><br><span class="line"><span class="meta">#</span> -z 压缩(compress)</span><br><span class="line"><span class="meta">#</span> -d 解压缩(decompress)</span><br><span class="line"><span class="meta">#</span># Examples:</span><br><span class="line">	bzip2 -d filename.tar.bz2	# 将会生成filename.tar文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gzip --help</span><br><span class="line">Usage: gzip [OPTION]... [FILE]...</span><br><span class="line">Compress or uncompress FILEs (by default, compress FILES in-place).</span><br><span class="line"><span class="meta">#</span> -d 解压缩(decompress)</span><br><span class="line"><span class="meta">#</span># Examples:</span><br><span class="line">	gzip -d filename.tar.gz		# 将会生成filename.tar文件</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Shell-脚本"><a href="#Shell-脚本" class="headerlink" title="Shell 脚本"></a>Shell 脚本</h2><h3 id="控制语句与变量"><a href="#控制语句与变量" class="headerlink" title="控制语句与变量"></a>控制语句与变量</h3><h4 id="shell脚本的关系操作符"><a href="#shell脚本的关系操作符" class="headerlink" title="shell脚本的关系操作符"></a>shell脚本的关系操作符</h4><ul>
+<li><code>&gt;</code>    –&gt;    <code>-gt</code></li>
+<li><code>&lt;</code>        –&gt;        <code>-lt</code></li>
+<li><code>&gt;=</code>      –&gt;        <code>-ge</code></li>
+<li><code>&lt;=</code>      –&gt;        <code>-le</code></li>
+<li><code>==</code>      –&gt;        <code>-eq</code></li>
+<li><code>!=</code>      –&gt;        <code>-ne</code></li>
+</ul>
+<h4 id="shell脚本的if语句"><a href="#shell脚本的if语句" class="headerlink" title="shell脚本的if语句"></a>shell脚本的if语句</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if [ ... ]</span><br><span class="line">then</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">else</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h4 id="shell脚本的for语句"><a href="#shell脚本的for语句" class="headerlink" title="shell脚本的for语句"></a>shell脚本的for语句</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for x in ...</span><br><span class="line">do</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="shell脚本的while语句"><a href="#shell脚本的while语句" class="headerlink" title="shell脚本的while语句"></a>shell脚本的while语句</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while [ ... ]</span><br><span class="line">do</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls</span><br><span class="line">invictus</span><br><span class="line"><span class="meta">$</span> ls &gt; ls.txt # 重定向操作符,重定向输出,`&lt;`将重定向输入</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">invictus  ls.txt</span><br><span class="line"><span class="meta">$</span> cat ls.txt</span><br><span class="line">invictus</span><br><span class="line">ls.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="算术操作符"><a href="#算术操作符" class="headerlink" title="算术操作符"></a>算术操作符</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+  # 加法</span><br><span class="line">-  # 减法</span><br><span class="line">\* # 乘法</span><br><span class="line">/  # 除法</span><br></pre></td></tr></table></figure>
+
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><h5 id="简单的shell脚本"><a href="#简单的shell脚本" class="headerlink" title="简单的shell脚本"></a>简单的shell脚本</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">cal</span><br><span class="line">date</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出(运行<code>sh file.sh</code>命令)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">invictus</span><br><span class="line">     April 2019</span><br><span class="line">Su Mo Tu We Th Fr Sa</span><br><span class="line">    1  2  3  4  5  6</span><br><span class="line"> 7  8  9 10 11 12 13</span><br><span class="line">14 15 16 17 18 19 20</span><br><span class="line">21 22 23 24 25 26 27</span><br><span class="line">28 29 30</span><br><span class="line"></span><br><span class="line">Thu Apr 11 22:52:55 DST 2019</span><br></pre></td></tr></table></figure>
+
+<h5 id="变量的赋值与运行"><a href="#变量的赋值与运行" class="headerlink" title="变量的赋值与运行"></a>变量的赋值与运行</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=10 # 对变量的赋值操作符两边不能有空格</span><br><span class="line">echo $a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<h5 id="字符串输出"><a href="#字符串输出" class="headerlink" title="字符串输出"></a>字符串输出</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">echo $a</span><br><span class="line">echo "Hello World" # 输出字符串</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<h5 id="字符串的连续输出"><a href="#字符串的连续输出" class="headerlink" title="字符串的连续输出"></a>字符串的连续输出</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">echo $a</span><br><span class="line">echo "Hello World" $a # 连续输出字符串</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">Hello World 10</span><br></pre></td></tr></table></figure>
+
+<h5 id="echo输出"><a href="#echo输出" class="headerlink" title="echo输出"></a>echo输出</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">echo $a</span><br><span class="line">echo Hello World $a # 字符串可以不带双引号，echo会原封不动的将之后的内容输出，包括空格</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World 10</span><br></pre></td></tr></table></figure>
+
+<h5 id="变量求和并输出"><a href="#变量求和并输出" class="headerlink" title="变量求和并输出"></a>变量求和并输出</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">b=3</span><br><span class="line">c=`expr $a + $b` # 加法操作符</span><br><span class="line">echo $c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+
+<h5 id="变量求和并输出-1"><a href="#变量求和并输出-1" class="headerlink" title="变量求和并输出"></a>变量求和并输出</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=10</span><br><span class="line">b=3</span><br><span class="line"><span class="meta">#</span> c=`expr $a * $b` # 乘法操作符不能这样写,必须进行转义</span><br><span class="line">c=`expr $a \* $b` # 乘法操作符</span><br><span class="line">echo $c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<h5 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=1</span><br><span class="line">b=3</span><br><span class="line"><span class="meta">#</span> if [ $a &gt; $b ] # if语句格式,`&gt;`操作符不能这样写</span><br><span class="line">if [ $a -gt $b ] # `-gt`表示大于</span><br><span class="line">then</span><br><span class="line">        echo $a</span><br><span class="line">else</span><br><span class="line">        echo $b</span><br><span class="line">fi # 不能少,表示if语句的结束</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h5 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for x in 1 2 3 4 5 6 7 8 9 # for语句格式</span><br><span class="line">do</span><br><span class="line">        echo $x</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h5 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h5><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=1</span><br><span class="line">while [ $x -le 10 ] # while语句格式,`-le`表示小于或等于</span><br><span class="line">do</span><br><span class="line">        echo $x</span><br><span class="line">        x=`expr $x + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串与数组"><a href="#字符串与数组" class="headerlink" title="字符串与数组"></a>字符串与数组</h3><h4 id="字符串变量"><a href="#字符串变量" class="headerlink" title="字符串变量"></a>字符串变量</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a="hello"</span><br><span class="line">b="world"</span><br><span class="line"></span><br><span class="line">echo $a</span><br><span class="line">echo $b</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
+
+<h4 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo "Please enter a = "</span><br><span class="line">read a</span><br><span class="line">echo "Please enter b = "</span><br><span class="line">read b</span><br><span class="line"></span><br><span class="line">c=`expr $a + $b`</span><br><span class="line">echo $a + $b = $c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Please enter a =</span><br><span class="line">1</span><br><span class="line">Please enter b =</span><br><span class="line">1</span><br><span class="line">1 + 1 = 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的比较"><a href="#字符串的比较" class="headerlink" title="字符串的比较"></a>字符串的比较</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">password="hello123"</span><br><span class="line"></span><br><span class="line">echo "Please enter a password: "</span><br><span class="line">read userPassword</span><br><span class="line"></span><br><span class="line">if [ $password = $userPassword ] # 字符串的比较必须使用单个`=`符号表示相等，'!='表示不相等</span><br><span class="line">then</span><br><span class="line">        echo "密码正确"</span><br><span class="line">else</span><br><span class="line">        echo "密码错误"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Please enter a password:</span><br><span class="line">hello123</span><br><span class="line">密码正确</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str1="hello"</span><br><span class="line">str2="world"</span><br><span class="line"></span><br><span class="line">str3="$str1 $str2"</span><br><span class="line">echo $str3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断字符串是否为空"><a href="#判断字符串是否为空" class="headerlink" title="判断字符串是否为空"></a>判断字符串是否为空</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">string=""</span><br><span class="line"></span><br><span class="line">if [ -z $string ] # `-z`表示字符串为空 `-n`表示字符串非空</span><br><span class="line">then</span><br><span class="line">        echo "string is zero"</span><br><span class="line">else</span><br><span class="line">        echo "string is not zero"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string is zero</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组定义-需要bash运行而不是sh"><a href="#数组定义-需要bash运行而不是sh" class="headerlink" title="数组定义(需要bash运行而不是sh)"></a>数组定义(需要bash运行而不是sh)</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr=(7 8 9 10) # 数组定义</span><br><span class="line">echo $&#123;arr[1]&#125; # 输出下标为1的元素</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出(应该使用bash filename.sh命令)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> test.sh: 1: test.sh: Syntax error: "(" unexpected # 使用sh命令会报错</span><br><span class="line">8 # 使用bash命令运行结果</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h4><ul>
+<li>脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr=(7 8 9 10)</span><br><span class="line"></span><br><span class="line">for i in $&#123;arr[@]&#125; # 类似于java中的for-each语法</span><br><span class="line">do</span><br><span class="line">        echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> wget --help</span><br><span class="line">GNU Wget 1.19.4, a non-interactive network retriever.</span><br><span class="line">Usage: wget [OPTION]... [URL]...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="下载该教程"><a href="#下载该教程" class="headerlink" title="下载该教程"></a>下载该教程</h2><p><u><strong>以下方法可以下载该教程的PDF版本以及HTML版本</strong></u></p>
+<ul>
+<li>使用git <code>git clone https://github.com/wangyuxiang0829/My-Perspective-on-Linux.git</code></li>
+<li>访问网页 <code>https://github.com/wangyuxiang0829/My-Perspective-on-Linux.git</code></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/uploads/wexin.jpg" alt="wangyuxiang0829 wechat" style="width: 200px; max-width: 100%;">
+  <div>扫一扫关注我的微信公众号</div>
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/06/Git/" rel="next" title="Git简明教程">
+                <i class="fa fa-chevron-left"></i> Git简明教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/06/Markdown/" rel="prev" title="Markdown简明教程">
+                Markdown简明教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/dream.jpg" alt="wangyuxiang0829">
+            
+              <p class="site-author-name" itemprop="name">wangyuxiang0829</p>
+              <div class="site-description motion-element" itemprop="description">Do What I Love</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wangyuxiang0829" title="GitHub &rarr; https://github.com/wangyuxiang0829" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/yuxiangwang0829@gmail.com" title="E-Mail &rarr; yuxiangwang0829@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux初探"><span class="nav-number">1.</span> <span class="nav-text">Linux初探</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.1.</span> <span class="nav-text">基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#日期与时间"><span class="nav-number">1.1.1.</span> <span class="nav-text">日期与时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件查看"><span class="nav-number">1.1.3.</span> <span class="nav-text">文件查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令路径查看"><span class="nav-number">1.1.4.</span> <span class="nav-text">命令路径查看</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件结构与权限"><span class="nav-number">1.2.</span> <span class="nav-text">文件结构与权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件结构"><span class="nav-number">1.2.1.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限更改"><span class="nav-number">1.2.2.</span> <span class="nav-text">权限更改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep命令与正则表达式"><span class="nav-number">1.3.</span> <span class="nav-text">grep命令与正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.4.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通变量"><span class="nav-number">1.4.1.</span> <span class="nav-text">普通变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">1.4.2.</span> <span class="nav-text">全局变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包与解包"><span class="nav-number">1.5.</span> <span class="nav-text">打包与解包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zip与unzip"><span class="nav-number">1.5.1.</span> <span class="nav-text">zip与unzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tar"><span class="nav-number">1.5.2.</span> <span class="nav-text">tar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩与提取"><span class="nav-number">1.6.</span> <span class="nav-text">压缩与提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xz"><span class="nav-number">1.6.1.</span> <span class="nav-text">.xz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bz2"><span class="nav-number">1.6.2.</span> <span class="nav-text">.bz2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gz"><span class="nav-number">1.6.3.</span> <span class="nav-text">.gz</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-脚本"><span class="nav-number">1.7.</span> <span class="nav-text">Shell 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制语句与变量"><span class="nav-number">1.7.1.</span> <span class="nav-text">控制语句与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的关系操作符"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">shell脚本的关系操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的if语句"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">shell脚本的if语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的for语句"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">shell脚本的for语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell脚本的while语句"><span class="nav-number">1.7.1.4.</span> <span class="nav-text">shell脚本的while语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向"><span class="nav-number">1.7.1.5.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算术操作符"><span class="nav-number">1.7.1.6.</span> <span class="nav-text">算术操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">1.7.1.7.</span> <span class="nav-text">举例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单的shell脚本"><span class="nav-number">1.7.1.7.1.</span> <span class="nav-text">简单的shell脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量的赋值与运行"><span class="nav-number">1.7.1.7.2.</span> <span class="nav-text">变量的赋值与运行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串输出"><span class="nav-number">1.7.1.7.3.</span> <span class="nav-text">字符串输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串的连续输出"><span class="nav-number">1.7.1.7.4.</span> <span class="nav-text">字符串的连续输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo输出"><span class="nav-number">1.7.1.7.5.</span> <span class="nav-text">echo输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量求和并输出"><span class="nav-number">1.7.1.7.6.</span> <span class="nav-text">变量求和并输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量求和并输出-1"><span class="nav-number">1.7.1.7.7.</span> <span class="nav-text">变量求和并输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#条件语句"><span class="nav-number">1.7.1.7.8.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.7.1.7.9.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while循环"><span class="nav-number">1.7.1.7.10.</span> <span class="nav-text">while循环</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串与数组"><span class="nav-number">1.7.2.</span> <span class="nav-text">字符串与数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串变量"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">字符串变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入与输出"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">输入与输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的比较"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">字符串的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串拼接"><span class="nav-number">1.7.2.4.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断字符串是否为空"><span class="nav-number">1.7.2.5.</span> <span class="nav-text">判断字符串是否为空</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组定义-需要bash运行而不是sh"><span class="nav-number">1.7.2.6.</span> <span class="nav-text">数组定义(需要bash运行而不是sh)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组遍历"><span class="nav-number">1.7.2.7.</span> <span class="nav-text">数组遍历</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">1.8.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载该教程"><span class="nav-number">1.9.</span> <span class="nav-text">下载该教程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangyuxiang0829</span>
+
+  
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
