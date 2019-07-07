@@ -109,7 +109,7 @@
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git简明教程">
-<meta property="og:url" content="http://yoursite.com/2019/07/06/Git简明教程/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/07/Git简明教程/index.html">
 <meta property="og:site_name" content="wangyuxiang0829">
 <meta property="og:description" content="Git is a distributed version control system">
 <meta property="og:locale" content="zh-CN">
@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fetch.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20fast-forward%20merge.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/pull%20with%20a%20merge%20commit.png">
-<meta property="og:updated_time" content="2019-07-06T02:43:37.000Z">
+<meta property="og:updated_time" content="2019-07-07T08:42:55.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git简明教程">
 <meta name="twitter:description" content="Git is a distributed version control system">
@@ -143,7 +143,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/06/Git简明教程/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/07/Git简明教程/">
 
 
 
@@ -359,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/Git简明教程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/Git简明教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyuxiang0829">
@@ -402,13 +402,9 @@
                 
               
 
-              <time title="创建时间：2019-07-06 02:49:49 / 修改时间：02:43:37" itemprop="dateCreated datePublished" datetime="2019-07-06T02:49:49+00:00">2019-07-06</time>
+              <time title="创建时间：2019-07-07 08:42:55" itemprop="dateCreated datePublished" datetime="2019-07-07T08:42:55+00:00">2019-07-07</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -461,7 +457,6 @@
       
         <p><strong>Git is a distributed version control system</strong></p>
 <a id="more"></a>
-
 <h2 id="Git-Overview"><a href="#Git-Overview" class="headerlink" title="Git Overview"></a>Git Overview</h2><h3 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a>What is Git?</h3><blockquote>
 <p>Git is a distributed version control system which means each user has a local copy of the remote repository and can easily be synchronized</p>
 </blockquote>
@@ -473,12 +468,10 @@
 <li>Use the <code>git config [--local | --global | --system] &lt;key&gt; [&lt;value&gt;]</code> command to specify or read configuration information if you don’t use the <code>[value]</code> option</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global user.email "yuxiangwang0829@gmail.com" # set</span><br><span class="line"><span class="meta">$</span> git config --global user.email # get</span><br><span class="line">yuxiangwang0829@gmail.com</span><br></pre></td></tr></table></figure>
-
 <h3 id="Configuring-the-Default-Editor"><a href="#Configuring-the-Default-Editor" class="headerlink" title="Configuring the Default Editor"></a>Configuring the Default Editor</h3><ul>
 <li>Use the <code>git config --global core.editor [&lt;editorname&gt;]</code> command to specify or read your preferred Git editor if you don’t use the <code>[editorname]</code> option</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git config --global core.editor vim # set</span><br><span class="line"><span class="meta">$</span> git config --global core.editor # get</span><br><span class="line">vim</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="Git-Locations"><a href="#Git-Locations" class="headerlink" title="Git Locations"></a>Git Locations</h2><h3 id="Project-Directory"><a href="#Project-Directory" class="headerlink" title="Project Directory"></a>Project Directory</h3><h4 id="Working-Tree"><a href="#Working-Tree" class="headerlink" title="Working Tree"></a>Working Tree</h4><ul>
 <li>A single commit’s directories and files</li>
@@ -498,7 +491,7 @@
 </ul>
 <hr>
 <h2 id="Create-a-Local-Repository"><a href="#Create-a-Local-Repository" class="headerlink" title="Create a Local Repository"></a>Create a Local Repository</h2><ul>
-<li><code>git init</code> – initialize (create) an empty repository</li>
+<li><code>git init</code> — initialize (create) an empty repository</li>
 </ul>
 <hr>
 <h2 id="Commit-to-a-Local-Repository"><a href="#Commit-to-a-Local-Repository" class="headerlink" title="Commit to a Local Repository"></a>Commit to a Local Repository</h2><ul>
@@ -631,10 +624,8 @@
 </li>
 </ul>
 <h4 id="Create-and-View-tags"><a href="#Create-and-View-tags" class="headerlink" title="Create and View tags"></a>Create and View tags</h4><h5 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h5><ul>
-<li><p><code>git tag</code> - View all tags in the repository</p>
-</li>
-<li><p>Tags can be used instead of branch labels or Git IDs in Git commands such as <code>git show v1.0</code></p>
-</li>
+<li><code>git tag</code> - View all tags in the repository</li>
+<li>Tags can be used instead of branch labels or Git IDs in Git commands such as <code>git show v1.0</code></li>
 <li><p>To tag a commit with a lightweight tag:</p>
 <ul>
 <li><code>git tag &lt;tagname&gt; [&lt;commit&gt;]</code></li>
@@ -649,7 +640,6 @@
 </li>
 </ul>
 <h5 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git init</span><br><span class="line">Initialized empty Git repository in /.../.../.git/</span><br><span class="line"><span class="meta">$</span> git log</span><br><span class="line">fatal: your current branch 'master' does not have any commits yet</span><br><span class="line"><span class="meta">$</span> touch file1</span><br><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use "git add &lt;file&gt;..." to include in what will be committed)</span><br><span class="line"></span><br><span class="line">        file1</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use "git add" to track)</span><br><span class="line"><span class="meta">$</span> git add .</span><br><span class="line"><span class="meta">$</span> git commit -m "file1"</span><br><span class="line">[master (root-commit) e37cbd7] file1</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line">create mode 100644 file1</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">e37cbd7 (HEAD -&gt; master) file1</span><br><span class="line"><span class="meta">$</span> git tag v1.0</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">e37cbd7 (HEAD -&gt; master, tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> touch file2</span><br><span class="line"><span class="meta">$</span> git add .</span><br><span class="line"><span class="meta">$</span> git commit -m "file2"</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">18e1299 (HEAD -&gt; master) file2</span><br><span class="line">e37cbd7 (tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> git tag -a -m "this is an annotated tag" v2.0</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">18e1299 (HEAD -&gt; master, tag: v2.0) file2</span><br><span class="line">e37cbd7 (tag: v1.0) file1</span><br><span class="line"><span class="meta">$</span> git tag</span><br><span class="line">v1.0</span><br><span class="line">v2.0</span><br></pre></td></tr></table></figure>
-
 <h4 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h4><ul>
 <li><code>git push</code> does not automatically transfer tags to the remote repository</li>
 <li>To transfer a single tag: <code>git push [&lt;remote&gt;] &lt;tagname&gt;</code></li>
@@ -657,7 +647,7 @@
 </ul>
 <hr>
 <h2 id="Branches"><a href="#Branches" class="headerlink" title="Branches"></a>Branches</h2><h3 id="Branch-Overview"><a href="#Branch-Overview" class="headerlink" title="Branch Overview"></a>Branch Overview</h3><blockquote>
-<p>A branch is a set of commits starting with the most recent commit in the branch and tracing back to the project’s first commit – root commit</p>
+<p>A branch is a set of commits starting with the most recent commit in the branch and tracing back to the project’s first commit — root commit</p>
 </blockquote>
 <h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
 <li>Fast and easy to create</li>
@@ -669,7 +659,7 @@
 <li><strong>Short-lived</strong> (commonly called topic or feature branches) usually contain one small change to the project</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/short%20lived%20branch.png" alt="short lived branch"></p>
-<ol start="2">
+<ol>
 <li><strong>Long-lived</strong> such as master, develop, release</li>
 </ol>
 <h4 id="Look-Over"><a href="#Look-Over" class="headerlink" title="Look Over"></a>Look Over</h4><ul>
@@ -693,13 +683,11 @@
 <li>Checking out a <strong>commit</strong> rather than a <strong>branch label</strong> leads to a detached HEAD state</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">You are in &apos;detached HEAD&apos; state. You can look around, make experimental</span><br><span class="line">changes and commit them, and you can discard any commits you make in this</span><br><span class="line">state without impacting any branches by performing another checkout.</span><br><span class="line"></span><br><span class="line">If you want to create a new branch to retain commits you create, you may</span><br><span class="line">do so (now or later) by using -b with the checkout command again. Example:</span><br><span class="line"></span><br><span class="line">  git checkout -b &lt;new-branch-name&gt;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/Detached%20HEAD.png" alt="Detached HEAD"></p>
 <h3 id="Deleting-a-Branch-Label"><a href="#Deleting-a-Branch-Label" class="headerlink" title="Deleting a Branch Label"></a>Deleting a Branch Label</h3><h4 id="How-to-Delete"><a href="#How-to-Delete" class="headerlink" title="How to Delete"></a>How to Delete</h4><ul>
 <li>Use <code>git branch -d &lt;branchname&gt;</code> to delete a branch</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; master, featureX) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout featureX</span><br><span class="line">Switched to branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; featureX, master) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">error: Cannot delete branch 'featureX' checked out at '...'</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line">Switched to branch 'master'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">Deleted branch featureX (was 3388bbb).</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3388bbb (HEAD -&gt; master) C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>Deleting a branch really just means that you’re deleting a branch label</p>
 </blockquote>
@@ -708,13 +696,11 @@
 <li><strong>If you are trying to delete a not fully merged branch, Git will not let you to do that</strong></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">3db9474 (HEAD -&gt; master) E</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout featureX</span><br><span class="line">Switched to branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">4a4439d (HEAD -&gt; featureX) D</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line">Switched to branch 'master'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br><span class="line">error: The branch 'featureX' is not fully merged.</span><br><span class="line">If you are sure you want to delete it, run 'git branch -D featureX'.</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>If you are sure you want to delete the branch, use the command <code>git branch -D &lt;branchname&gt;</code> but that will lead to the <strong>dangling commits</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/dangling%20commit.png" alt="dangling commit"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch -D featureX</span><br><span class="line">Deleted branch featureX (was 4a4439d).</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>Git will periodically garbage collect looking for and deleting older dangling commits, So be careful if you use the D option</p>
 </blockquote>
@@ -722,7 +708,6 @@
 <li>You can use <code>git reflog</code> to return a local list of recent HEAD commits</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog</span><br><span class="line">3db9474 (HEAD -&gt; master) HEAD@&#123;0&#125;: checkout: moving from featureX to master</span><br><span class="line">4a4439d HEAD@&#123;1&#125;: commit: D</span><br><span class="line">3388bbb HEAD@&#123;2&#125;: checkout: moving from master to featureX</span><br><span class="line">...</span><br><span class="line"><span class="meta">$</span> git checkout -b featureX 4a4439d</span><br><span class="line"><span class="meta">#</span> Creating a new branch label pointing to our previously dangling commit and now are back in bussiness</span><br><span class="line">Switched to a new branch 'featureX'</span><br><span class="line"><span class="meta">$</span> git log --oneline</span><br><span class="line">4a4439d (HEAD -&gt; featureX) D</span><br><span class="line">3388bbb C</span><br><span class="line">47efad3 B</span><br><span class="line">7811736 A</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h2><h3 id="Merge-Overview"><a href="#Merge-Overview" class="headerlink" title="Merge Overview"></a>Merge Overview</h3><h4 id="What-Does-Merge-Do"><a href="#What-Does-Merge-Do" class="headerlink" title="What Does Merge Do"></a>What Does Merge Do</h4><blockquote>
 <p>Merging combines the work of independent branches</p>
@@ -745,16 +730,13 @@
 <p>In this example, a Fast-forward merge is not possible:</p>
 <p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/not%20possible%20fast-forward%20merge.png" alt="not possible fast-forward merge"></p>
 <h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a fast-forward-merge:</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX # Attemping a fast forward merge is the default</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
-
 <h3 id="Merge-Commit"><a href="#Merge-Commit" class="headerlink" title="Merge Commit"></a>Merge Commit</h3><h4 id="What-Does-Merge-Commit-Do"><a href="#What-Does-Merge-Commit-Do" class="headerlink" title="What Does Merge Commit Do"></a>What Does Merge Commit Do</h4><ol>
 <li>Combines the commits at the tips of the merged branches</li>
 <li>Places the result in the merge commit</li>
 </ol>
 <h4 id="Graph-1"><a href="#Graph-1" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/merge%20commit.png" alt="merge commit"></p>
 <h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><h5 id="Not-Fast-Forwardable"><a href="#Not-Fast-Forwardable" class="headerlink" title="Not Fast Forwardable"></a>Not Fast Forwardable</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a merge commit(if the merge is not fast forwardable):</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX</span><br><span class="line"><span class="meta">#</span>1. automatically attempt to create a merge commit if the merge is not fast forwardable</span><br><span class="line"><span class="meta">#</span>2. accept or modify the default merge message created by git</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
-
 <h5 id="Is-Fast-Forwardable"><a href="#Is-Fast-Forwardable" class="headerlink" title="Is Fast Forwardable"></a>Is Fast Forwardable</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> The basic steps to performing a merge commit(if the merge is fast forwardable):</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge --no-ff featureX</span><br><span class="line"><span class="meta">#</span>1. [--no-ff] means that a merge commit will always be created even the merge is fast forwardable</span><br><span class="line"><span class="meta">#</span>2. accept or modify the merge default message created by git</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="Resolving-Merge-Conflicts"><a href="#Resolving-Merge-Conflicts" class="headerlink" title="Resolving Merge Conflicts"></a>Resolving Merge Conflicts</h2><h3 id="Merge-Conflict-Overview"><a href="#Merge-Conflict-Overview" class="headerlink" title="Merge Conflict Overview"></a>Merge Conflict Overview</h3><h4 id="Hunk"><a href="#Hunk" class="headerlink" title="Hunk"></a>Hunk</h4><blockquote>
 <p>In Git, a part of file is called a <strong>hunk</strong></p>
@@ -776,10 +758,8 @@
 <li>A common ancestor (A) - “merge base”</li>
 </ol>
 <h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Basic steps to resolve a merge conflict:</span><br><span class="line"><span class="meta">$</span> git checkout master</span><br><span class="line"><span class="meta">$</span> git merge featureX</span><br><span class="line"><span class="meta">#</span>1. Assume both branches modified the same hunk in a file in different ways</span><br><span class="line"><span class="meta">#</span>2. At this point, git will modifed the file which will show you exactly where the conflicts are and placed the file in your working tree</span><br><span class="line">---</span><br><span class="line"><span class="meta">#</span>3. At this point, if you don't want to continue to merge, you can use the fllowing command to abort the merge:</span><br><span class="line"><span class="meta">$</span> git merge --abort</span><br><span class="line">---</span><br><span class="line"><span class="meta">#</span>3. Modifiy the file and resolve the merge conflict which requires human judgement and then make a commit</span><br><span class="line"><span class="meta">$</span> git add fileA.txt</span><br><span class="line"><span class="meta">$</span> git commit # This will open the default editor since you don't use '-m'</span><br><span class="line"><span class="meta">$</span> git branch -d featureX</span><br></pre></td></tr></table></figure>
-
 <h4 id="Note-5"><a href="#Note-5" class="headerlink" title="Note"></a>Note</h4><p>The conflicted hunks will be displaying just like this:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">feature 1 # unconflicted</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">feature 3 # ours</span><br><span class="line">=======</span><br><span class="line">feature 2 # theirs</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;&gt;&gt;&gt;&gt; featureX</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="Tracking-Branches"><a href="#Tracking-Branches" class="headerlink" title="Tracking Branches"></a>Tracking Branches</h2><h3 id="Tracking-Branch-Overview"><a href="#Tracking-Branch-Overview" class="headerlink" title="Tracking Branch Overview"></a>Tracking Branch Overview</h3><h4 id="What-Is-a-Tracking-Branch"><a href="#What-Is-a-Tracking-Branch" class="headerlink" title="What Is a Tracking Branch"></a>What Is a Tracking Branch</h4><ol>
 <li>A tracking branch is a local branch that represents a remote branch</li>
@@ -790,32 +770,26 @@
 </blockquote>
 <h3 id="Viewing-Tracking-Branch"><a href="#Viewing-Tracking-Branch" class="headerlink" title="Viewing Tracking Branch"></a>Viewing Tracking Branch</h3><h4 id="How-to-Watch-the-Tracking-Branch"><a href="#How-to-Watch-the-Tracking-Branch" class="headerlink" title="How to Watch the Tracking Branch"></a>How to Watch the Tracking Branch</h4><h5 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h5><p> <code>git branch --all</code> to display all local and tracking branch names</p>
 <h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
-
 <h4 id="Special-Tracking-Branch"><a href="#Special-Tracking-Branch" class="headerlink" title="Special Tracking Branch"></a>Special Tracking Branch</h4><h5 id="HEAD-Reference-1"><a href="#HEAD-Reference-1" class="headerlink" title="HEAD Reference"></a>HEAD Reference</h5><blockquote>
 <p>A reference named <code>remotes/origin/HEAD</code> is a symbolic reference meaning that it is a reference that points to another reference, and this <strong>specifies the default remote tracking branch</strong></p>
 </blockquote>
 <h5 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master # the default remote tracking branch</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
-
 <h5 id="Note-7"><a href="#Note-7" class="headerlink" title="Note"></a>Note</h5><ul>
 <li>You can use only <code>&lt;remotename&gt;</code> name instead of the whole tracking branch name which is known as <code>remotename/branchname</code> in git command and in this case you will use the default remote tracking branch which is specified by <code>remotes/origin/HEAD</code></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log origin/master --oneline # see the commits of tracking branch origin/master</span><br><span class="line"><span class="meta">$</span> git log origin --oneline # the same as before by using the default tracking branch</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>Change the default remote tracking branch with <code>git remote set-head &lt;remotename&gt; &lt;branch&gt;</code></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git remote set-head origin master</span><br><span class="line"><span class="meta">$</span> git branch --all</span><br><span class="line">* master</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/master</span><br><span class="line">  remotes/origin/master</span><br></pre></td></tr></table></figure>
-
 <h3 id="Viewing-Tracking-Branch-Status"><a href="#Viewing-Tracking-Branch-Status" class="headerlink" title="Viewing Tracking Branch Status"></a>Viewing Tracking Branch Status</h3><ul>
 <li><code>git status</code> includes tracking branch status</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with 'origin/master'.</span><br><span class="line"><span class="meta">#</span> Means that since of the last time that we use a network command like fetch, we have the latest commit in our local repository</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>git status</code> will inform you if the cached tracking branch information is out of synchronous with your local  branch</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead of `origin/master` by 1 commit</span><br></pre></td></tr></table></figure>
-
 <hr>
 <h2 id="Fetch-Pull-and-Push"><a href="#Fetch-Pull-and-Push" class="headerlink" title="Fetch, Pull and Push"></a>Fetch, Pull and Push</h2><h3 id="Network-Command-Overview"><a href="#Network-Command-Overview" class="headerlink" title="Network Command Overview"></a>Network Command Overview</h3><ul>
 <li><strong>Clone</strong> - Copies a remote repository</li>
@@ -829,20 +803,17 @@
 <li>Does not impact the local branch labels</li>
 </ol>
 <h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log origin/master --oneline</span><br><span class="line">* 92dd144 (HEAD -&gt; master, origin/master, origin/HEAD) ...</span><br><span class="line"><span class="meta">$</span> git fetch</span><br><span class="line">remote: Enumerating objects: 4, done.</span><br><span class="line">remote: Counting objects: 100% (4/4), done.</span><br><span class="line">remote: Compressing objects: 100% (3/3), done.</span><br><span class="line">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (3/3), done.</span><br><span class="line">From ../url/to/projectname.git</span><br><span class="line">   92dd144..90fcaa3  master     -&gt; origin/master</span><br><span class="line"><span class="meta">$</span> git log origin/master --oneline</span><br><span class="line">90fcaa3 (origin/master, origin/HEAD) ...</span><br><span class="line">92dd144 (HEAD -&gt; master) ...</span><br></pre></td></tr></table></figure>
-
 <h4 id="Graph-4"><a href="#Graph-4" class="headerlink" title="Graph"></a>Graph</h4><p><img src="https://raw.githubusercontent.com/wangyuxiang0829/My-Perspective-on-Git/master/images/fetch.png" alt="fetch"></p>
 <h4 id="Note-8"><a href="#Note-8" class="headerlink" title="Note"></a>Note</h4><ul>
 <li><code>git status</code> will inform you that your current branch is behind the tracking branch</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.</span><br><span class="line">  (use "git pull" to update your local branch)</span><br></pre></td></tr></table></figure>
-
 <h3 id="Pull"><a href="#Pull" class="headerlink" title="Pull"></a>Pull</h3><h4 id="What-Does-Pull-Do"><a href="#What-Does-Pull-Do" class="headerlink" title="What Does Pull Do"></a>What Does Pull Do</h4><p>Combines <code>git fetch</code> and <code>git merge FETCH_HEAD</code> (FETCH_HEAD is an alias for the tip of the tracking branch)</p>
 <ul>
 <li>If objects are fetched, the tracking branch is merged into the current local branch</li>
 <li>This is similar to a topic branch merging into a base branch</li>
 </ul>
 <h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git pull</span><br><span class="line">Updating 92dd144..90fcaa3</span><br><span class="line">Fast-forward</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <h4 id="git-pull-Command-Options"><a href="#git-pull-Command-Options" class="headerlink" title="git pull Command Options"></a><code>git pull</code> Command Options</h4><ul>
 <li><code>--ff</code> (default) fast-forward if possible, otherwise perform merge commit</li>
 <li><code>--no-ff</code> -always include a merge commit</li>
@@ -855,7 +826,6 @@
 <li><code>-u</code> Track this branch (<code>--set--upstream</code>)</li>
 </ul>
 <h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git push -u origin master</span><br><span class="line">Counting objects: 3, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (3/3), done.</span><br><span class="line">Writing objects: 100% (3/3), 1.04 KiB | 354.00 KiB/s, done.</span><br><span class="line">Total 3 (delta 2), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span><br><span class="line">To ../url/to/projectname.git</span><br><span class="line">   8b42715..7c42389  master -&gt; master</span><br><span class="line">Branch 'master' set up to track remote branch 'master' from 'origin'.</span><br></pre></td></tr></table></figure>
-
 <h4 id="Note-9"><a href="#Note-9" class="headerlink" title="Note"></a>Note</h4><blockquote>
 <p>Fetching or pulling before you push is suggested</p>
 </blockquote>
@@ -901,8 +871,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/06/Linux初探/" rel="next" title="Linux初探">
-                <i class="fa fa-chevron-left"></i> Linux初探
+              <a href="/2019/07/06/Markdown简明教程/" rel="next" title="Markdown简明教程">
+                <i class="fa fa-chevron-left"></i> Markdown简明教程
               </a>
             
           </div>
@@ -911,8 +881,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/06/神雕侠侣/" rel="prev" title="神雕侠侣">
-                神雕侠侣 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/07/Linux初探/" rel="prev" title="Linux初探">
+                Linux初探 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -984,7 +954,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1005,7 +975,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1030,7 +1002,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1265,6 +1239,53 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
